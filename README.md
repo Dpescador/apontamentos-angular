@@ -2,6 +2,10 @@
 
 Aplicação web para registrar atividades e acompanhar horas por dia, semana e mês. O projeto utiliza Angular standalone, Bootstrap, Bootstrap Icons, Signals e armazenamento local com sincronização opcional em TXT/JSON.
 
+## Manual do usuário
+
+Consulte o arquivo [`HELP.md`](HELP.md) para aprender a instalar e utilizar todas as funções do sistema.
+
 ## Funcionalidades
 
 - Gráficos semanal e mensal com meta diária de 8 horas.
