@@ -1,0 +1,15 @@
+.grid-tools {
+  width: min(390px, 100%);
+  text-align: right;
+}
+
+.activity-table {
+  min-width: 1160px;
+}
+
+.activity-table th {
+  white-space: nowrap;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}

@@ -1,0 +1,22 @@
+CORRECAO V6.2 - REGISTRO NPM
+============================
+
+Problema corrigido:
+O package-lock.json da versao anterior continha links para um registro npm
+interno do ambiente em que o projeto foi montado. Esse endereco nao pode ser
+acessado em outros computadores e causava o erro ETIMEDOUT.
+
+Ajustes desta versao:
+- Todos os links do package-lock.json apontam para https://registry.npmjs.org/
+- Arquivo .npmrc incluido com o registro publico oficial.
+- INICIAR_APLICACAO.bat forca o uso do registro publico.
+- REPARAR_DEPENDENCIAS.bat corrige automaticamente locks antigos.
+- Melhor tratamento de node_modules bloqueado por processos do Windows.
+- Tentativas e tempos de espera de rede do npm foram ampliados.
+
+Como usar:
+1. Extraia este ZIP em uma pasta nova.
+2. Feche qualquer ng serve antigo.
+3. Execute INICIAR_APLICACAO.bat.
+4. Se houver arquivos bloqueados, feche VS Code/terminais e execute
+   REPARAR_DEPENDENCIAS.bat.

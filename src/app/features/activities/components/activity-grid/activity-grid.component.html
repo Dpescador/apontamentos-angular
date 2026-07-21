@@ -1,0 +1,89 @@
+<section class="card border-0 shadow-sm">
+  <div class="card-body">
+    <div class="d-flex flex-column flex-lg-row align-items-lg-end justify-content-between gap-3 mb-3">
+      <div class="d-flex align-items-start gap-2">
+        <span class="icon-circle bg-primary-subtle text-primary" aria-hidden="true">
+          <i class="bi bi-table"></i>
+        </span>
+        <div>
+          <span class="text-primary fw-bold text-uppercase small letter-spacing d-block">Histórico</span>
+          <h2 class="h5 mb-1">Atividades lançadas</h2>
+          <p class="text-secondary small mb-0">Ordenadas automaticamente da data mais recente para a mais antiga.</p>
+        </div>
+      </div>
+      <div class="grid-tools">
+        <div class="input-group">
+          <span class="input-group-text bg-body" aria-hidden="true"><i class="bi bi-search"></i></span>
+          <input class="form-control" type="search" placeholder="Pesquisar por data, sprint, tarefa ou item..." aria-label="Pesquisar atividades" (input)="onSearch($event)" />
+        </div>
+        <span class="text-secondary small d-block mt-1"><i class="bi bi-list-ul me-1" aria-hidden="true"></i>{{ filteredCount }} registros · {{ formatHours(totalFilteredHours) }}h</span>
+      </div>
+    </div>
+
+    <div class="table-responsive border rounded">
+      <table class="table table-hover align-middle mb-0 activity-table">
+        <thead class="table-light">
+          <tr>
+            <th>Data</th>
+            <th>Sprint</th>
+            <th>ID da tarefa</th>
+            <th>Tarefa</th>
+            <th>Itens trabalhados</th>
+            <th class="text-end">Horas</th>
+            <th class="text-end">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (activity of activities; track activity.id) {
+            <tr>
+              <td><time [attr.datetime]="activity.date">{{ formatDate(activity.date) }}</time></td>
+              <td><span class="badge bg-success-subtle text-success-emphasis border border-success-subtle">{{ activity.sprint || '—' }}</span></td>
+              <td><span class="badge text-bg-primary">{{ activity.taskId }}</span></td>
+              <td>{{ activity.task || '—' }}</td>
+              <td>{{ activity.itemsWorked || '—' }}</td>
+              <td class="text-end fw-semibold">{{ formatHours(activity.hours) }}h</td>
+              <td class="text-end text-nowrap">
+                <button class="btn btn-sm btn-outline-primary me-2" type="button" title="Editar apontamento" aria-label="Editar apontamento" (click)="editActivity.emit(activity)">
+                  <i class="bi bi-pencil-square" aria-hidden="true"></i>
+                  <span class="d-none d-xl-inline ms-1">Editar</span>
+                </button>
+                <button class="btn btn-sm btn-outline-danger" type="button" title="Excluir apontamento" aria-label="Excluir apontamento" (click)="removeActivity.emit(activity)">
+                  <i class="bi bi-trash3" aria-hidden="true"></i>
+                  <span class="d-none d-xl-inline ms-1">Excluir</span>
+                </button>
+              </td>
+            </tr>
+          } @empty {
+            <tr>
+              <td class="text-center text-secondary py-5" colspan="7">
+                <i class="bi bi-inbox d-block fs-2 mb-2" aria-hidden="true"></i>
+                Nenhum apontamento encontrado.
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mt-3">
+      <span class="text-secondary small">Exibindo {{ paginationStart }}–{{ paginationEnd }} de {{ filteredCount }} registros</span>
+      <nav aria-label="Paginação das atividades">
+        <ul class="pagination pagination-sm mb-0">
+          <li class="page-item" [class.disabled]="currentPage <= 1">
+            <button class="page-link d-inline-flex align-items-center gap-1" type="button" [disabled]="currentPage <= 1" (click)="pageChange.emit(currentPage - 1)">
+              <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              Anterior
+            </button>
+          </li>
+          <li class="page-item disabled"><span class="page-link">Página {{ currentPage }} de {{ totalPages }}</span></li>
+          <li class="page-item" [class.disabled]="currentPage >= totalPages">
+            <button class="page-link d-inline-flex align-items-center gap-1" type="button" [disabled]="currentPage >= totalPages" (click)="pageChange.emit(currentPage + 1)">
+              Próxima
+              <i class="bi bi-chevron-right" aria-hidden="true"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,259 @@
+{
+  "version": 1,
+  "exportedAt": "2026-07-17T12:00:00.000Z",
+  "activities": [
+    {
+      "id": "exemplo-001",
+      "date": "2026-07-01",
+      "sprint": "",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Planning",
+      "hours": 1,
+      "createdAt": "2026-07-01T12:01:00.000Z",
+      "updatedAt": "2026-07-01T12:01:00.000Z"
+    },
+    {
+      "id": "exemplo-002",
+      "date": "2026-07-01",
+      "sprint": "",
+      "taskId": "TASK 1402012",
+      "task": "US022",
+      "itemsWorked": "",
+      "hours": 3,
+      "createdAt": "2026-07-01T12:02:00.000Z",
+      "updatedAt": "2026-07-01T12:02:00.000Z"
+    },
+    {
+      "id": "exemplo-003",
+      "date": "2026-07-01",
+      "sprint": "",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Nova data de entrega",
+      "hours": 3,
+      "createdAt": "2026-07-01T12:03:00.000Z",
+      "updatedAt": "2026-07-01T12:03:00.000Z"
+    },
+    {
+      "id": "exemplo-004",
+      "date": "2026-07-01",
+      "sprint": "",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Devs",
+      "hours": 1,
+      "createdAt": "2026-07-01T12:04:00.000Z",
+      "updatedAt": "2026-07-01T12:04:00.000Z"
+    },
+    {
+      "id": "exemplo-005",
+      "date": "2026-07-02",
+      "sprint": "",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-07-02T12:05:00.000Z",
+      "updatedAt": "2026-07-02T12:05:00.000Z"
+    },
+    {
+      "id": "exemplo-006",
+      "date": "2026-07-02",
+      "sprint": "",
+      "taskId": "TASK 1402012",
+      "task": "US022",
+      "itemsWorked": "",
+      "hours": 6,
+      "createdAt": "2026-07-02T12:06:00.000Z",
+      "updatedAt": "2026-07-02T12:06:00.000Z"
+    },
+    {
+      "id": "exemplo-007",
+      "date": "2026-07-02",
+      "sprint": "",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Devs",
+      "hours": 1,
+      "createdAt": "2026-07-02T12:07:00.000Z",
+      "updatedAt": "2026-07-02T12:07:00.000Z"
+    },
+    {
+      "id": "exemplo-008",
+      "date": "2026-07-02",
+      "sprint": "",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "P.O.",
+      "hours": 0.5,
+      "createdAt": "2026-07-02T12:08:00.000Z",
+      "updatedAt": "2026-07-02T12:08:00.000Z"
+    },
+    {
+      "id": "exemplo-009",
+      "date": "2026-07-03",
+      "sprint": "",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-07-03T12:09:00.000Z",
+      "updatedAt": "2026-07-03T12:09:00.000Z"
+    },
+    {
+      "id": "exemplo-010",
+      "date": "2026-07-03",
+      "sprint": "",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "ConectaVisaRS",
+      "hours": 1.5,
+      "createdAt": "2026-07-03T12:10:00.000Z",
+      "updatedAt": "2026-07-03T12:10:00.000Z"
+    },
+    {
+      "id": "exemplo-011",
+      "date": "2026-07-03",
+      "sprint": "",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Eixos",
+      "hours": 0.5,
+      "createdAt": "2026-07-03T12:11:00.000Z",
+      "updatedAt": "2026-07-03T12:11:00.000Z"
+    },
+    {
+      "id": "exemplo-012",
+      "date": "2026-07-03",
+      "sprint": "",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Devs",
+      "hours": 0.5,
+      "createdAt": "2026-07-03T12:12:00.000Z",
+      "updatedAt": "2026-07-03T12:12:00.000Z"
+    },
+    {
+      "id": "exemplo-013",
+      "date": "2026-07-03",
+      "sprint": "",
+      "taskId": "TASK 1402012",
+      "task": "US022",
+      "itemsWorked": "",
+      "hours": 5,
+      "createdAt": "2026-07-03T12:13:00.000Z",
+      "updatedAt": "2026-07-03T12:13:00.000Z"
+    },
+    {
+      "id": "exemplo-014",
+      "date": "2026-07-06",
+      "sprint": "",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-07-06T12:14:00.000Z",
+      "updatedAt": "2026-07-06T12:14:00.000Z"
+    },
+    {
+      "id": "exemplo-015",
+      "date": "2026-07-06",
+      "sprint": "",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "SIVISA",
+      "hours": 3,
+      "createdAt": "2026-07-06T12:15:00.000Z",
+      "updatedAt": "2026-07-06T12:15:00.000Z"
+    },
+    {
+      "id": "exemplo-016",
+      "date": "2026-07-06",
+      "sprint": "",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Devs",
+      "hours": 0.5,
+      "createdAt": "2026-07-06T12:16:00.000Z",
+      "updatedAt": "2026-07-06T12:16:00.000Z"
+    },
+    {
+      "id": "exemplo-017",
+      "date": "2026-07-06",
+      "sprint": "",
+      "taskId": "PRODUCT BACKLOG ITEM 1415084",
+      "task": "",
+      "itemsWorked": "Ajustes",
+      "hours": 2,
+      "createdAt": "2026-07-06T12:17:00.000Z",
+      "updatedAt": "2026-07-06T12:17:00.000Z"
+    },
+    {
+      "id": "exemplo-018",
+      "date": "2026-07-06",
+      "sprint": "",
+      "taskId": "TASK 1402012",
+      "task": "US022",
+      "itemsWorked": "",
+      "hours": 2,
+      "createdAt": "2026-07-06T12:18:00.000Z",
+      "updatedAt": "2026-07-06T12:18:00.000Z"
+    },
+    {
+      "id": "exemplo-019",
+      "date": "2026-07-07",
+      "sprint": "",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-07-07T12:19:00.000Z",
+      "updatedAt": "2026-07-07T12:19:00.000Z"
+    },
+    {
+      "id": "exemplo-020",
+      "date": "2026-07-07",
+      "sprint": "",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Uxs e Devs",
+      "hours": 0.5,
+      "createdAt": "2026-07-07T12:20:00.000Z",
+      "updatedAt": "2026-07-07T12:20:00.000Z"
+    },
+    {
+      "id": "exemplo-021",
+      "date": "2026-07-07",
+      "sprint": "",
+      "taskId": "TASK 1402012",
+      "task": "US022",
+      "itemsWorked": "",
+      "hours": 7,
+      "createdAt": "2026-07-07T12:21:00.000Z",
+      "updatedAt": "2026-07-07T12:21:00.000Z"
+    },
+    {
+      "id": "exemplo-022",
+      "date": "2026-07-08",
+      "sprint": "",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 1,
+      "createdAt": "2026-07-08T12:22:00.000Z",
+      "updatedAt": "2026-07-08T12:22:00.000Z"
+    },
+    {
+      "id": "exemplo-023",
+      "date": "2026-07-08",
+      "sprint": "",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Nova estrutura do BD",
+      "hours": 1.5,
+      "createdAt": "2026-07-08T12:23:00.000Z",
+      "updatedAt": "2026-07-08T12:23:00.000Z"
+    }
+  ]
+}

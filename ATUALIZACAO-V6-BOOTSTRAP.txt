@@ -1,0 +1,19 @@
+VERSÃO 6 — COMPONENTIZAÇÃO E BOOTSTRAP
+
+O projeto foi reorganizado em componentes standalone:
+
+src/app/components/
+  app-header/          Cabeçalho e ações do TXT
+  period-controls/     Período, finais de semana e navegação semanal
+  summary-cards/       Indicadores semanais
+  bar-chart/           Gráfico reutilizável semanal/mensal
+  month-summary/       Resumo e navegação mensal
+  activity-form/       Formulário de apontamento
+  activity-grid/       Pesquisa, tabela e paginação
+
+Bootstrap 5.3.8 foi instalado via npm e importado em src/styles.css.
+A maior parte do layout, formulários, botões, cards, grid responsivo, tabela,
+alertas, badges, progresso e paginação agora utiliza classes Bootstrap.
+
+O CSS personalizado ficou restrito principalmente aos gráficos e pequenos
+ajustes de identidade visual.

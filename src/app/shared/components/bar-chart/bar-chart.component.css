@@ -1,0 +1,251 @@
+:host {
+  display: block;
+}
+
+.chart-card-body {
+  padding: 1rem 1.25rem;
+}
+
+.chart-header {
+  margin-bottom: 0.5rem;
+}
+
+.target-legend {
+  width: 20px;
+  border-top: 2px dashed var(--bs-orange);
+}
+
+.chart-scroll {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.bar-chart {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 205px;
+  padding: 8px 8px 0;
+  border-bottom: 1px solid var(--bs-border-color);
+  background-image: linear-gradient(to top, rgb(108 117 125 / 12%) 1px, transparent 1px);
+  background-size: 100% 25%;
+}
+
+.week-chart {
+  justify-content: space-around;
+  gap: clamp(8px, 2vw, 30px);
+}
+
+.month-chart {
+  justify-content: stretch;
+  gap: clamp(1px, 0.3vw, 6px);
+}
+
+.plot-overlay {
+  position: absolute;
+  top: 8px;
+  right: 0;
+  bottom: 34px;
+  left: 0;
+  pointer-events: none;
+}
+
+.target-line {
+  position: absolute;
+  right: 8px;
+  left: 8px;
+  z-index: 2;
+  border-top: 2px dashed var(--bs-orange);
+}
+
+.target-line span {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  padding: 1px 5px;
+  border-radius: var(--bs-border-radius-sm);
+  background: var(--bs-warning-bg-subtle);
+  color: var(--bs-warning-text-emphasis);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.bar-column {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-rows: 1fr 18px 16px;
+  align-items: end;
+  justify-items: center;
+  width: min(64px, 12%);
+  height: 100%;
+  min-width: 0;
+}
+
+.bar-column.compact {
+  width: auto;
+  min-width: 0;
+  flex: 1 1 0;
+}
+
+.bar-track {
+  position: relative;
+  align-self: stretch;
+  width: 70%;
+  min-width: 22px;
+  overflow: visible;
+  border-radius: 9px 9px 3px 3px;
+  outline: none;
+}
+
+.compact .bar-track {
+  width: clamp(12px, 46%, 32px);
+  min-width: 10px;
+  max-width: 32px;
+}
+
+.bar-value {
+  position: absolute;
+  bottom: calc(var(--target-height, 0%) + 7px);
+  left: 50%;
+  z-index: 4;
+  color: var(--bs-secondary-color);
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.bar-target,
+.bar {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 9px 9px 3px 3px;
+  transition: height 260ms ease;
+}
+
+.bar-target {
+  z-index: 0;
+  background: var(--bs-secondary-bg);
+}
+
+.bar {
+  z-index: 1;
+  min-height: 0;
+  background: linear-gradient(180deg, #60a5fa, var(--bs-primary));
+  box-shadow: 0 6px 13px rgb(13 110 253 / 20%);
+}
+
+.weekend .bar-target {
+  background: var(--bs-tertiary-bg);
+}
+
+.weekend .bar {
+  background: linear-gradient(180deg, #ced4da, #adb5bd);
+  box-shadow: none;
+}
+
+.bar-tooltip {
+  position: absolute;
+  bottom: calc(var(--bar-height, 0%) + 8px);
+  left: 50%;
+  z-index: 8;
+  display: grid;
+  gap: 3px;
+  min-width: 138px;
+  padding: 5px 8px;
+  border-radius: var(--bs-border-radius-sm);
+  background: var(--bs-dark);
+  color: var(--bs-white);
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: left;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 4px);
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.bar-tooltip::after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-top-color: var(--bs-dark);
+  content: '';
+  transform: translateX(-50%);
+}
+
+.bar-track:hover .bar-tooltip,
+.bar-track:focus-visible .bar-tooltip {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.bar-track:focus-visible {
+  box-shadow: 0 0 0 3px rgb(13 110 253 / 18%);
+}
+
+.bar-column > strong {
+  align-self: end;
+  font-size: 0.78rem;
+  text-transform: capitalize;
+}
+
+.bar-column > small {
+  color: var(--bs-secondary-color);
+  font-size: 0.72rem;
+}
+
+.compact .bar-value {
+  font-size: 0.6rem;
+}
+
+.bar-tooltip strong {
+  font-weight: 700;
+}
+
+@media (max-width: 767.98px) {
+  .chart-card-body {
+    padding: 0.875rem;
+  }
+
+  .chart-header {
+    flex-direction: column;
+    gap: 0.25rem !important;
+  }
+
+  .bar-chart {
+    height: 190px;
+  }
+
+  .week-chart {
+    gap: 4px;
+  }
+
+  .bar-column {
+    width: min(52px, 18%);
+  }
+
+  .compact .bar-track {
+    width: clamp(8px, 50%, 18px);
+    min-width: 8px;
+  }
+
+  .compact .bar-value,
+  .compact .bar-column > small {
+    font-size: 0.55rem;
+  }
+}

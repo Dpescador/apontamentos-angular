@@ -1,0 +1,48 @@
+@if (modal.state(); as dialog) {
+  <div class="modal-backdrop fade show app-modal-backdrop" aria-hidden="true"></div>
+
+  <div
+    class="modal fade show d-block app-modal-layer"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="global-modal-title"
+    aria-describedby="global-modal-message"
+  >
+    <div class="modal-dialog modal-dialog-centered app-modal-dialog">
+      <section #modalPanel class="modal-content border-0 shadow-lg overflow-hidden">
+        <div class="modal-body p-4 p-sm-5 text-center">
+          <div
+            class="modal-status-icon mx-auto mb-3"
+            [class]="'modal-status-icon mx-auto mb-3 ' + titleClass(dialog.variant)"
+            aria-hidden="true"
+          >
+            <i class="bi" [class]="'bi ' + iconClassFor(dialog.variant)"></i>
+          </div>
+
+          <h2 id="global-modal-title" class="h4 fw-bold mb-3">{{ dialog.title }}</h2>
+          <p id="global-modal-message" class="text-secondary mb-0 modal-message">{{ dialog.message }}</p>
+        </div>
+
+        <div class="modal-footer border-0 bg-body-tertiary justify-content-center gap-2 px-4 py-3">
+          @if (dialog.showCancel) {
+            <button class="btn btn-outline-secondary px-4 d-inline-flex align-items-center gap-2" type="button" (click)="modal.cancel()">
+              <i class="bi bi-x-lg" aria-hidden="true"></i>
+              {{ dialog.cancelText }}
+            </button>
+          }
+
+          <button
+            #primaryButton
+            class="btn px-4 d-inline-flex align-items-center gap-2"
+            [class]="'btn px-4 d-inline-flex align-items-center gap-2 ' + confirmButtonClass(dialog.variant)"
+            type="button"
+            (click)="modal.accept()"
+          >
+            <i class="bi" [class]="'bi ' + confirmIconClass(dialog.variant)" aria-hidden="true"></i>
+            {{ dialog.confirmText }}
+          </button>
+        </div>
+      </section>
+    </div>
+  </div>
+}

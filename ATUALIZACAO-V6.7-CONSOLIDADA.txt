@@ -1,0 +1,24 @@
+ATUALIZAÇÃO V6.7 — CONSOLIDAÇÃO DOS AJUSTES
+===========================================
+
+Alterações incluídas:
+
+- Gráficos semanal e mensal mais compactos.
+- Linha de meta de 8h usando a mesma escala e área das barras.
+- Barra cinza de meta alinhada exatamente à linha laranja de 8h.
+- Valores das barras posicionados próximos à linha de meta.
+- Tooltip com horas apontadas e horas que faltam para completar 8h.
+- Gráfico mensal sem barra de rolagem horizontal.
+- Dias do mês distribuídos por toda a largura do card.
+- Cards com menos espaço vertical entre títulos e conteúdo.
+- Campo Tarefa convertido em combo com:
+  * Análise
+  * Cerimônias e Reuniões
+- Compatibilidade com valores antigos de Tarefa durante a edição.
+- Tarefa passou a ser obrigatória para novos lançamentos e edições.
+- Mantidos: Sprint, paginação de 20 itens, finais de semana, modais globais,
+  Bootstrap, TXT/JSON e atalho para a Área de Trabalho.
+
+Arquivos completos para importação disponíveis em:
+- dados/apontamentos-completos.txt
+- dados/apontamentos-completos.json

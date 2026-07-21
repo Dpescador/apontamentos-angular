@@ -1,0 +1,15 @@
+DASHBOARD DE APONTAMENTOS - VERSAO 6.6
+
+ATALHO NA AREA DE TRABALHO
+
+1. Extraia o projeto para uma pasta definitiva.
+2. Execute INICIAR_APLICACAO.bat ao menos uma vez para instalar as dependencias.
+3. Execute CRIAR_ATALHO_AREA_DE_TRABALHO.bat.
+4. Um icone chamado Apontamentos sera criado na Area de Trabalho.
+5. Ao clicar no icone, o servidor Angular inicia em segundo plano e o navegador abre automaticamente.
+
+IMPORTANTE
+- Nao mova nem renomeie a pasta do projeto depois de criar o atalho.
+- Caso mova a pasta, execute novamente CRIAR_ATALHO_AREA_DE_TRABALHO.bat.
+- Para encerrar o servidor em segundo plano, execute ENCERRAR_APONTAMENTOS.bat.
+- Os registros continuam armazenados no navegador e/ou no TXT vinculado.

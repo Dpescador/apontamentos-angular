@@ -1,0 +1,7 @@
+ATUALIZAÇÃO V5 — CAMPO SPRINT
+
+1. O campo Sprint foi incluído após a Data no formulário.
+2. A coluna Sprint foi incluída após a Data no grid.
+3. Arquivos TXT/JSON antigos continuam funcionando.
+4. Ao editar um registro antigo, preencha a Sprint e salve.
+5. O valor será persistido na propriedade JSON: "sprint".

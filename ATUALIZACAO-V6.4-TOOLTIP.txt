@@ -1,0 +1,11 @@
+ATUALIZAÇÃO V6.4 — TOOLTIP DOS GRÁFICOS
+
+Ao posicionar o mouse ou o foco do teclado sobre uma barra, o tooltip mostra:
+- Horas apontadas no dia;
+- Horas que faltam para completar a meta diária de 8 horas.
+
+Exemplo:
+Apontadas: 2,5h
+Faltam: 5,5h
+
+Quando a meta é atingida ou superada, o valor de Faltam é 0h.

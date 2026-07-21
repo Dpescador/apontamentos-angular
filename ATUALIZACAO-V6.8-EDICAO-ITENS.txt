@@ -1,0 +1,7 @@
+ATUALIZAÇÃO V6.8 — CORREÇÃO DE EDIÇÃO
+
+- Corrigido o carregamento do campo "Itens trabalhados" ao editar um apontamento.
+- A edição agora recupera o registro completo diretamente do repositório.
+- O formulário é preenchido integralmente com reset/patch seguro.
+- Importação aceita também nomes antigos: itensTrabalhados, itens_trabalhados e items.
+- Autocomplete do navegador desativado no formulário para evitar sobrescritas visuais.

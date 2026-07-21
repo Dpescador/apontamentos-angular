@@ -1,0 +1,16 @@
+DASHBOARD DE APONTAMENTOS - COMO ABRIR
+
+1. Extraia todo o arquivo ZIP.
+2. Dê dois cliques em INICIAR_APLICACAO.bat.
+3. Na primeira execução, aguarde o npm instalar as dependências.
+4. O navegador abrirá em http://localhost:4200.
+
+IMPORTANTE:
+Não abra src/index.html diretamente. Esse arquivo é um template do Angular e,
+sem a compilação do Angular CLI, a página aparece em branco.
+
+Se o comando npm não for reconhecido, instale o Node.js e reinicie o terminal.
+
+ATUALIZAÇÃO:
+- Use o botão "Exibir finais de semana" para mostrar sábado e domingo nos gráficos.
+- O histórico apresenta 20 registros por página.

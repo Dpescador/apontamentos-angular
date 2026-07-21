@@ -1,0 +1,14 @@
+VERSÃO 8.0 — REORGANIZAÇÃO POR FUNCIONALIDADE
+
+- Código reorganizado em core, shared, features e layout.
+- AppComponent reduzido ao ponto de entrada da aplicação.
+- ActivityDashboardComponent criado como página do dashboard.
+- ActivityDashboardFacade criada para estado, formulário, filtros, paginação e indicadores.
+- ActivityRepositoryService reduzido às operações e coordenação da persistência.
+- ActivityFileService criada para importação, exportação, normalização e serialização.
+- FileSystemService criada para permissões, leitura, gravação e download.
+- StorageService criada para localStorage e IndexedDB.
+- Formulário de atividades passou a usar tipagem específica.
+- Eventos de pesquisa, data e importação passaram a emitir valores tipados.
+- Opções de tarefa e dados iniciais foram removidos dos componentes e serviços.
+- tsconfig.json atualizado com rootDir explícito e sem opções depreciadas.

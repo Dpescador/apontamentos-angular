@@ -1,0 +1,14 @@
+CORRECAO V6.1 - INSTALACAO DAS DEPENDENCIAS
+
+O arquivo INICIAR_APLICACAO.bat agora verifica se os pacotes essenciais realmente existem, incluindo:
+- node_modules/@angular/build
+- node_modules/@angular/cli
+- node_modules/bootstrap
+
+Quando encontra uma instalacao incompleta, ele:
+1. remove a pasta node_modules;
+2. executa npm ci usando o package-lock.json;
+3. tenta npm install como alternativa caso npm ci falhe;
+4. valida novamente o pacote @angular/build antes de iniciar.
+
+Tambem foi adicionado REPARAR_DEPENDENCIAS.bat para reparacao manual com dois cliques.

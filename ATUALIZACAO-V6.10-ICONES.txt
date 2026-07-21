@@ -1,0 +1,9 @@
+ATUALIZAÇÃO V6.10 — BOOTSTRAP ICONS
+
+- Adicionado o pacote bootstrap-icons.
+- Importação global em src/styles.css.
+- Ícones nos botões de vincular, sincronizar, importar e exportar TXT.
+- Ícones nos controles de período, navegação mensal e paginação.
+- Ícones no formulário, pesquisa, edição, exclusão e estados vazios.
+- Ícones nos cards de indicadores e nos modais globais.
+- Validação de bootstrap-icons nos scripts de instalação do Windows.

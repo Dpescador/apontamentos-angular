@@ -1,0 +1,12 @@
+ATUALIZAÇÃO V6.9 — PESQUISA POR DATA
+
+A pesquisa do histórico agora também aceita datas nos formatos:
+- 17/07/2026
+- 17-07-2026
+- 17/07
+- 17-07
+- 17072026
+- 2026-07-17
+
+A pesquisa continua funcionando para Sprint, ID da tarefa, Tarefa, Itens trabalhados e Horas.
+Ao iniciar uma nova pesquisa, a paginação retorna automaticamente para a primeira página.

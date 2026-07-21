@@ -1,0 +1,1106 @@
+{
+  "version": 1,
+  "exportedAt": "2026-07-17T12:00:00.000Z",
+  "activities": [
+    {
+      "id": "importacao-0001",
+      "date": "2026-07-01",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Planning",
+      "hours": 1.0,
+      "createdAt": "2026-07-01T12:00:01Z",
+      "updatedAt": "2026-07-01T12:00:01Z"
+    },
+    {
+      "id": "importacao-0002",
+      "date": "2026-07-01",
+      "taskId": "TASK 1402012",
+      "task": "US022",
+      "itemsWorked": "",
+      "hours": 3.0,
+      "createdAt": "2026-07-01T12:00:02Z",
+      "updatedAt": "2026-07-01T12:00:02Z"
+    },
+    {
+      "id": "importacao-0003",
+      "date": "2026-07-01",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Nova data de entrega",
+      "hours": 3.0,
+      "createdAt": "2026-07-01T12:00:03Z",
+      "updatedAt": "2026-07-01T12:00:03Z"
+    },
+    {
+      "id": "importacao-0004",
+      "date": "2026-07-01",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Devs",
+      "hours": 1.0,
+      "createdAt": "2026-07-01T12:00:04Z",
+      "updatedAt": "2026-07-01T12:00:04Z"
+    },
+    {
+      "id": "importacao-0005",
+      "date": "2026-07-02",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-07-02T12:00:05Z",
+      "updatedAt": "2026-07-02T12:00:05Z"
+    },
+    {
+      "id": "importacao-0006",
+      "date": "2026-07-02",
+      "taskId": "TASK 1402012",
+      "task": "US022",
+      "itemsWorked": "",
+      "hours": 6.0,
+      "createdAt": "2026-07-02T12:00:06Z",
+      "updatedAt": "2026-07-02T12:00:06Z"
+    },
+    {
+      "id": "importacao-0007",
+      "date": "2026-07-02",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Devs",
+      "hours": 1.0,
+      "createdAt": "2026-07-02T12:00:07Z",
+      "updatedAt": "2026-07-02T12:00:07Z"
+    },
+    {
+      "id": "importacao-0008",
+      "date": "2026-07-02",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "P.O.",
+      "hours": 0.5,
+      "createdAt": "2026-07-02T12:00:08Z",
+      "updatedAt": "2026-07-02T12:00:08Z"
+    },
+    {
+      "id": "importacao-0009",
+      "date": "2026-07-03",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-07-03T12:00:09Z",
+      "updatedAt": "2026-07-03T12:00:09Z"
+    },
+    {
+      "id": "importacao-0010",
+      "date": "2026-07-03",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "ConectaVisaRS",
+      "hours": 1.5,
+      "createdAt": "2026-07-03T12:00:10Z",
+      "updatedAt": "2026-07-03T12:00:10Z"
+    },
+    {
+      "id": "importacao-0011",
+      "date": "2026-07-03",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Eixos",
+      "hours": 0.5,
+      "createdAt": "2026-07-03T12:00:11Z",
+      "updatedAt": "2026-07-03T12:00:11Z"
+    },
+    {
+      "id": "importacao-0012",
+      "date": "2026-07-03",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Devs",
+      "hours": 0.5,
+      "createdAt": "2026-07-03T12:00:12Z",
+      "updatedAt": "2026-07-03T12:00:12Z"
+    },
+    {
+      "id": "importacao-0013",
+      "date": "2026-07-03",
+      "taskId": "TASK 1402012",
+      "task": "US022",
+      "itemsWorked": "",
+      "hours": 5.0,
+      "createdAt": "2026-07-03T12:00:13Z",
+      "updatedAt": "2026-07-03T12:00:13Z"
+    },
+    {
+      "id": "importacao-0014",
+      "date": "2026-07-06",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-07-06T12:00:14Z",
+      "updatedAt": "2026-07-06T12:00:14Z"
+    },
+    {
+      "id": "importacao-0015",
+      "date": "2026-07-06",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "SIVISA",
+      "hours": 3.0,
+      "createdAt": "2026-07-06T12:00:15Z",
+      "updatedAt": "2026-07-06T12:00:15Z"
+    },
+    {
+      "id": "importacao-0016",
+      "date": "2026-07-06",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Devs",
+      "hours": 0.5,
+      "createdAt": "2026-07-06T12:00:16Z",
+      "updatedAt": "2026-07-06T12:00:16Z"
+    },
+    {
+      "id": "importacao-0017",
+      "date": "2026-07-06",
+      "taskId": "PRODUCT BACKLOG ITEM 1415084",
+      "task": "",
+      "itemsWorked": "Ajustes",
+      "hours": 2.0,
+      "createdAt": "2026-07-06T12:00:17Z",
+      "updatedAt": "2026-07-06T12:00:17Z"
+    },
+    {
+      "id": "importacao-0018",
+      "date": "2026-07-06",
+      "taskId": "TASK 1402012",
+      "task": "US022",
+      "itemsWorked": "",
+      "hours": 2.0,
+      "createdAt": "2026-07-06T12:00:18Z",
+      "updatedAt": "2026-07-06T12:00:18Z"
+    },
+    {
+      "id": "importacao-0019",
+      "date": "2026-07-07",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-07-07T12:00:19Z",
+      "updatedAt": "2026-07-07T12:00:19Z"
+    },
+    {
+      "id": "importacao-0020",
+      "date": "2026-07-07",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Uxs e Devs",
+      "hours": 0.5,
+      "createdAt": "2026-07-07T12:00:20Z",
+      "updatedAt": "2026-07-07T12:00:20Z"
+    },
+    {
+      "id": "importacao-0021",
+      "date": "2026-07-07",
+      "taskId": "TASK 1402012",
+      "task": "US022",
+      "itemsWorked": "",
+      "hours": 7.0,
+      "createdAt": "2026-07-07T12:00:21Z",
+      "updatedAt": "2026-07-07T12:00:21Z"
+    },
+    {
+      "id": "importacao-0022",
+      "date": "2026-07-08",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 1.0,
+      "createdAt": "2026-07-08T12:00:22Z",
+      "updatedAt": "2026-07-08T12:00:22Z"
+    },
+    {
+      "id": "importacao-0023",
+      "date": "2026-07-08",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Nova estrutura do BD",
+      "hours": 1.5,
+      "createdAt": "2026-07-08T12:00:23Z",
+      "updatedAt": "2026-07-08T12:00:23Z"
+    },
+    {
+      "id": "importacao-0024",
+      "date": "2026-07-08",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "BI",
+      "hours": 1.0,
+      "createdAt": "2026-07-08T12:00:24Z",
+      "updatedAt": "2026-07-08T12:00:24Z"
+    },
+    {
+      "id": "importacao-0025",
+      "date": "2026-07-08",
+      "taskId": "PRODUCT BACKLOG ITEM 1415084",
+      "task": "",
+      "itemsWorked": "Ajustes",
+      "hours": 4.5,
+      "createdAt": "2026-07-08T12:00:25Z",
+      "updatedAt": "2026-07-08T12:00:25Z"
+    },
+    {
+      "id": "importacao-0026",
+      "date": "2026-07-09",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily, Nova estrutura do BD",
+      "hours": 3.0,
+      "createdAt": "2026-07-09T12:00:26Z",
+      "updatedAt": "2026-07-09T12:00:26Z"
+    },
+    {
+      "id": "importacao-0027",
+      "date": "2026-07-09",
+      "taskId": "TASK 1402012",
+      "task": "US022",
+      "itemsWorked": "",
+      "hours": 5.0,
+      "createdAt": "2026-07-09T12:00:27Z",
+      "updatedAt": "2026-07-09T12:00:27Z"
+    },
+    {
+      "id": "importacao-0028",
+      "date": "2026-07-10",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-07-10T12:00:28Z",
+      "updatedAt": "2026-07-10T12:00:28Z"
+    },
+    {
+      "id": "importacao-0029",
+      "date": "2026-07-10",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "ConectaVisaRS",
+      "hours": 1.5,
+      "createdAt": "2026-07-10T12:00:29Z",
+      "updatedAt": "2026-07-10T12:00:29Z"
+    },
+    {
+      "id": "importacao-0030",
+      "date": "2026-07-10",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Validação épico 1",
+      "hours": 2.0,
+      "createdAt": "2026-07-10T12:00:30Z",
+      "updatedAt": "2026-07-10T12:00:30Z"
+    },
+    {
+      "id": "importacao-0031",
+      "date": "2026-07-10",
+      "taskId": "TASK 1402055",
+      "task": "US024",
+      "itemsWorked": "",
+      "hours": 4.0,
+      "createdAt": "2026-07-10T12:00:31Z",
+      "updatedAt": "2026-07-10T12:00:31Z"
+    },
+    {
+      "id": "importacao-0032",
+      "date": "2026-07-13",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-07-13T12:00:32Z",
+      "updatedAt": "2026-07-13T12:00:32Z"
+    },
+    {
+      "id": "importacao-0033",
+      "date": "2026-07-13",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "SIVISA",
+      "hours": 3.0,
+      "createdAt": "2026-07-13T12:00:33Z",
+      "updatedAt": "2026-07-13T12:00:33Z"
+    },
+    {
+      "id": "importacao-0034",
+      "date": "2026-07-13",
+      "taskId": "TASK 1402055",
+      "task": "US024",
+      "itemsWorked": "",
+      "hours": 4.5,
+      "createdAt": "2026-07-13T12:00:34Z",
+      "updatedAt": "2026-07-13T12:00:34Z"
+    },
+    {
+      "id": "importacao-0035",
+      "date": "2026-07-14",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-07-14T12:00:35Z",
+      "updatedAt": "2026-07-14T12:00:35Z"
+    },
+    {
+      "id": "importacao-0036",
+      "date": "2026-07-14",
+      "taskId": "TASK 1402055",
+      "task": "US024",
+      "itemsWorked": "",
+      "hours": 7.5,
+      "createdAt": "2026-07-14T12:00:36Z",
+      "updatedAt": "2026-07-14T12:00:36Z"
+    },
+    {
+      "id": "importacao-0037",
+      "date": "2026-07-15",
+      "taskId": "TASK 1421353",
+      "task": "US026 – Revisão",
+      "itemsWorked": "",
+      "hours": 1.0,
+      "createdAt": "2026-07-15T12:00:37Z",
+      "updatedAt": "2026-07-15T12:00:37Z"
+    },
+    {
+      "id": "importacao-0038",
+      "date": "2026-07-15",
+      "taskId": "TASK 1412342",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-07-15T12:00:38Z",
+      "updatedAt": "2026-07-15T12:00:38Z"
+    },
+    {
+      "id": "importacao-0039",
+      "date": "2026-06-16",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Pré planning",
+      "hours": 2.0,
+      "createdAt": "2026-06-16T12:00:39Z",
+      "updatedAt": "2026-06-16T12:00:39Z"
+    },
+    {
+      "id": "importacao-0040",
+      "date": "2026-06-16",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Planning",
+      "hours": 1.0,
+      "createdAt": "2026-06-16T12:00:40Z",
+      "updatedAt": "2026-06-16T12:00:40Z"
+    },
+    {
+      "id": "importacao-0041",
+      "date": "2026-06-16",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Dev",
+      "hours": 0.5,
+      "createdAt": "2026-06-16T12:00:41Z",
+      "updatedAt": "2026-06-16T12:00:41Z"
+    },
+    {
+      "id": "importacao-0042",
+      "date": "2026-06-16",
+      "taskId": "TASK 1403188",
+      "task": "US021",
+      "itemsWorked": "",
+      "hours": 4.5,
+      "createdAt": "2026-06-16T12:00:42Z",
+      "updatedAt": "2026-06-16T12:00:42Z"
+    },
+    {
+      "id": "importacao-0043",
+      "date": "2026-06-17",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-06-17T12:00:43Z",
+      "updatedAt": "2026-06-17T12:00:43Z"
+    },
+    {
+      "id": "importacao-0044",
+      "date": "2026-06-17",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Dev",
+      "hours": 2.0,
+      "createdAt": "2026-06-17T12:00:44Z",
+      "updatedAt": "2026-06-17T12:00:44Z"
+    },
+    {
+      "id": "importacao-0045",
+      "date": "2026-06-17",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "P.O.",
+      "hours": 1.0,
+      "createdAt": "2026-06-17T12:00:45Z",
+      "updatedAt": "2026-06-17T12:00:45Z"
+    },
+    {
+      "id": "importacao-0046",
+      "date": "2026-06-17",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "UX + P.O.",
+      "hours": 1.0,
+      "createdAt": "2026-06-17T12:00:46Z",
+      "updatedAt": "2026-06-17T12:00:46Z"
+    },
+    {
+      "id": "importacao-0047",
+      "date": "2026-06-17",
+      "taskId": "TASK 1403188",
+      "task": "US021",
+      "itemsWorked": "",
+      "hours": 3.5,
+      "createdAt": "2026-06-17T12:00:47Z",
+      "updatedAt": "2026-06-17T12:00:47Z"
+    },
+    {
+      "id": "importacao-0048",
+      "date": "2026-06-18",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-06-18T12:00:48Z",
+      "updatedAt": "2026-06-18T12:00:48Z"
+    },
+    {
+      "id": "importacao-0049",
+      "date": "2026-06-18",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Dev",
+      "hours": 1.0,
+      "createdAt": "2026-06-18T12:00:49Z",
+      "updatedAt": "2026-06-18T12:00:49Z"
+    },
+    {
+      "id": "importacao-0050",
+      "date": "2026-06-18",
+      "taskId": "TASK 1404831",
+      "task": "US019",
+      "itemsWorked": "",
+      "hours": 4.0,
+      "createdAt": "2026-06-18T12:00:50Z",
+      "updatedAt": "2026-06-18T12:00:50Z"
+    },
+    {
+      "id": "importacao-0051",
+      "date": "2026-06-18",
+      "taskId": "TASK 1403188",
+      "task": "US021",
+      "itemsWorked": "",
+      "hours": 2.5,
+      "createdAt": "2026-06-18T12:00:51Z",
+      "updatedAt": "2026-06-18T12:00:51Z"
+    },
+    {
+      "id": "importacao-0052",
+      "date": "2026-06-19",
+      "taskId": "TASK 1404831",
+      "task": "US019",
+      "itemsWorked": "",
+      "hours": 3.5,
+      "createdAt": "2026-06-19T12:00:52Z",
+      "updatedAt": "2026-06-19T12:00:52Z"
+    },
+    {
+      "id": "importacao-0053",
+      "date": "2026-06-19",
+      "taskId": "TASK 1403188",
+      "task": "US021",
+      "itemsWorked": "",
+      "hours": 2.0,
+      "createdAt": "2026-06-19T12:00:53Z",
+      "updatedAt": "2026-06-19T12:00:53Z"
+    },
+    {
+      "id": "importacao-0054",
+      "date": "2026-06-19",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-06-19T12:00:54Z",
+      "updatedAt": "2026-06-19T12:00:54Z"
+    },
+    {
+      "id": "importacao-0055",
+      "date": "2026-06-19",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "ConectaVisaRS",
+      "hours": 1.5,
+      "createdAt": "2026-06-19T12:00:55Z",
+      "updatedAt": "2026-06-19T12:00:55Z"
+    },
+    {
+      "id": "importacao-0056",
+      "date": "2026-06-19",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "P.O.",
+      "hours": 0.5,
+      "createdAt": "2026-06-19T12:00:56Z",
+      "updatedAt": "2026-06-19T12:00:56Z"
+    },
+    {
+      "id": "importacao-0057",
+      "date": "2026-06-22",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-06-22T12:00:57Z",
+      "updatedAt": "2026-06-22T12:00:57Z"
+    },
+    {
+      "id": "importacao-0058",
+      "date": "2026-06-22",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "SIVISA",
+      "hours": 2.0,
+      "createdAt": "2026-06-22T12:00:58Z",
+      "updatedAt": "2026-06-22T12:00:58Z"
+    },
+    {
+      "id": "importacao-0059",
+      "date": "2026-06-22",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "DEVs",
+      "hours": 2.0,
+      "createdAt": "2026-06-22T12:00:59Z",
+      "updatedAt": "2026-06-22T12:00:59Z"
+    },
+    {
+      "id": "importacao-0060",
+      "date": "2026-06-22",
+      "taskId": "TASK 1404831",
+      "task": "US019",
+      "itemsWorked": "",
+      "hours": 3.5,
+      "createdAt": "2026-06-22T12:01:00Z",
+      "updatedAt": "2026-06-22T12:01:00Z"
+    },
+    {
+      "id": "importacao-0061",
+      "date": "2026-06-23",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-06-23T12:01:01Z",
+      "updatedAt": "2026-06-23T12:01:01Z"
+    },
+    {
+      "id": "importacao-0062",
+      "date": "2026-06-23",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "P.O.",
+      "hours": 0.5,
+      "createdAt": "2026-06-23T12:01:02Z",
+      "updatedAt": "2026-06-23T12:01:02Z"
+    },
+    {
+      "id": "importacao-0063",
+      "date": "2026-06-23",
+      "taskId": "TASK 1404831",
+      "task": "US019",
+      "itemsWorked": "",
+      "hours": 6.0,
+      "createdAt": "2026-06-23T12:01:03Z",
+      "updatedAt": "2026-06-23T12:01:03Z"
+    },
+    {
+      "id": "importacao-0064",
+      "date": "2026-06-23",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "DEVs",
+      "hours": 1.0,
+      "createdAt": "2026-06-23T12:01:04Z",
+      "updatedAt": "2026-06-23T12:01:04Z"
+    },
+    {
+      "id": "importacao-0065",
+      "date": "2026-06-24",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-06-24T12:01:05Z",
+      "updatedAt": "2026-06-24T12:01:05Z"
+    },
+    {
+      "id": "importacao-0066",
+      "date": "2026-06-24",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "P.O.",
+      "hours": 0.5,
+      "createdAt": "2026-06-24T12:01:06Z",
+      "updatedAt": "2026-06-24T12:01:06Z"
+    },
+    {
+      "id": "importacao-0067",
+      "date": "2026-06-24",
+      "taskId": "TASK 1404831",
+      "task": "US019",
+      "itemsWorked": "",
+      "hours": 5.5,
+      "createdAt": "2026-06-24T12:01:07Z",
+      "updatedAt": "2026-06-24T12:01:07Z"
+    },
+    {
+      "id": "importacao-0068",
+      "date": "2026-06-24",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "DEVs",
+      "hours": 1.5,
+      "createdAt": "2026-06-24T12:01:08Z",
+      "updatedAt": "2026-06-24T12:01:08Z"
+    },
+    {
+      "id": "importacao-0069",
+      "date": "2026-06-25",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "DEVs",
+      "hours": 1.0,
+      "createdAt": "2026-06-25T12:01:09Z",
+      "updatedAt": "2026-06-25T12:01:09Z"
+    },
+    {
+      "id": "importacao-0070",
+      "date": "2026-06-25",
+      "taskId": "TASK 1404831",
+      "task": "US019",
+      "itemsWorked": "",
+      "hours": 6.0,
+      "createdAt": "2026-06-25T12:01:10Z",
+      "updatedAt": "2026-06-25T12:01:10Z"
+    },
+    {
+      "id": "importacao-0071",
+      "date": "2026-06-25",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "P.O e Leandro",
+      "hours": 1.0,
+      "createdAt": "2026-06-25T12:01:11Z",
+      "updatedAt": "2026-06-25T12:01:11Z"
+    },
+    {
+      "id": "importacao-0072",
+      "date": "2026-06-26",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-06-26T12:01:12Z",
+      "updatedAt": "2026-06-26T12:01:12Z"
+    },
+    {
+      "id": "importacao-0073",
+      "date": "2026-06-26",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "ConectaVisaRS",
+      "hours": 1.5,
+      "createdAt": "2026-06-26T12:01:13Z",
+      "updatedAt": "2026-06-26T12:01:13Z"
+    },
+    {
+      "id": "importacao-0074",
+      "date": "2026-06-26",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "DEVs",
+      "hours": 1.0,
+      "createdAt": "2026-06-26T12:01:14Z",
+      "updatedAt": "2026-06-26T12:01:14Z"
+    },
+    {
+      "id": "importacao-0075",
+      "date": "2026-06-26",
+      "taskId": "TASK 1403188",
+      "task": "US021",
+      "itemsWorked": "",
+      "hours": 5.0,
+      "createdAt": "2026-06-26T12:01:15Z",
+      "updatedAt": "2026-06-26T12:01:15Z"
+    },
+    {
+      "id": "importacao-0076",
+      "date": "2026-06-29",
+      "taskId": "TASK 1404800",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-06-29T12:01:16Z",
+      "updatedAt": "2026-06-29T12:01:16Z"
+    },
+    {
+      "id": "importacao-0077",
+      "date": "2026-06-29",
+      "taskId": "TASK 1403188",
+      "task": "US021",
+      "itemsWorked": "",
+      "hours": 7.5,
+      "createdAt": "2026-06-29T12:01:17Z",
+      "updatedAt": "2026-06-29T12:01:17Z"
+    },
+    {
+      "id": "importacao-0078",
+      "date": "2026-06-01",
+      "taskId": "TASK 1394045",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-06-01T12:01:18Z",
+      "updatedAt": "2026-06-01T12:01:18Z"
+    },
+    {
+      "id": "importacao-0079",
+      "date": "2026-06-01",
+      "taskId": "TASK 1396388*",
+      "task": "US008 – Ajustes",
+      "itemsWorked": "",
+      "hours": 2.0,
+      "createdAt": "2026-06-01T12:01:19Z",
+      "updatedAt": "2026-06-01T12:01:19Z"
+    },
+    {
+      "id": "importacao-0080",
+      "date": "2026-06-01",
+      "taskId": "TASK 1396390",
+      "task": "US013 – Ajustes",
+      "itemsWorked": "",
+      "hours": 2.0,
+      "createdAt": "2026-06-01T12:01:20Z",
+      "updatedAt": "2026-06-01T12:01:20Z"
+    },
+    {
+      "id": "importacao-0081",
+      "date": "2026-06-01",
+      "taskId": "TASK 1396397",
+      "task": "US012 – Ajustes",
+      "itemsWorked": "",
+      "hours": 1.0,
+      "createdAt": "2026-06-01T12:01:21Z",
+      "updatedAt": "2026-06-01T12:01:21Z"
+    },
+    {
+      "id": "importacao-0082",
+      "date": "2026-06-02",
+      "taskId": "TASK 1394045",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Devs",
+      "hours": 4.0,
+      "createdAt": "2026-06-02T12:01:22Z",
+      "updatedAt": "2026-06-02T12:01:22Z"
+    },
+    {
+      "id": "importacao-0083",
+      "date": "2026-06-02",
+      "taskId": "TASK 1394045",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 1.0,
+      "createdAt": "2026-06-02T12:01:23Z",
+      "updatedAt": "2026-06-02T12:01:23Z"
+    },
+    {
+      "id": "importacao-0084",
+      "date": "2026-06-02",
+      "taskId": "TASK 1394045",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Katia",
+      "hours": 0.5,
+      "createdAt": "2026-06-02T12:01:24Z",
+      "updatedAt": "2026-06-02T12:01:24Z"
+    },
+    {
+      "id": "importacao-0085",
+      "date": "2026-06-02",
+      "taskId": "TASK 1394045",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Refinamento SP17",
+      "hours": 1.0,
+      "createdAt": "2026-06-02T12:01:25Z",
+      "updatedAt": "2026-06-02T12:01:25Z"
+    },
+    {
+      "id": "importacao-0086",
+      "date": "2026-06-02",
+      "taskId": "TASK 1394045",
+      "task": "US010 – Ajustes",
+      "itemsWorked": "",
+      "hours": 2.5,
+      "createdAt": "2026-06-02T12:01:26Z",
+      "updatedAt": "2026-06-02T12:01:26Z"
+    },
+    {
+      "id": "importacao-0087",
+      "date": "2026-06-03",
+      "taskId": "TASK 1394045",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-06-03T12:01:27Z",
+      "updatedAt": "2026-06-03T12:01:27Z"
+    },
+    {
+      "id": "importacao-0088",
+      "date": "2026-06-03",
+      "taskId": "TASK 1394045",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "P.O.",
+      "hours": 1.0,
+      "createdAt": "2026-06-03T12:01:28Z",
+      "updatedAt": "2026-06-03T12:01:28Z"
+    },
+    {
+      "id": "importacao-0089",
+      "date": "2026-06-03",
+      "taskId": "TASK 1395213",
+      "task": "US019",
+      "itemsWorked": "",
+      "hours": 7.5,
+      "createdAt": "2026-06-03T12:01:29Z",
+      "updatedAt": "2026-06-03T12:01:29Z"
+    },
+    {
+      "id": "importacao-0090",
+      "date": "2026-06-08",
+      "taskId": "TASK 1394045",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Devs e Uxs",
+      "hours": 0.5,
+      "createdAt": "2026-06-08T12:01:30Z",
+      "updatedAt": "2026-06-08T12:01:30Z"
+    },
+    {
+      "id": "importacao-0091",
+      "date": "2026-06-08",
+      "taskId": "TASK 1394045",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-06-08T12:01:31Z",
+      "updatedAt": "2026-06-08T12:01:31Z"
+    },
+    {
+      "id": "importacao-0092",
+      "date": "2026-06-08",
+      "taskId": "TASK 1394045",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "VISA",
+      "hours": 2.5,
+      "createdAt": "2026-06-08T12:01:32Z",
+      "updatedAt": "2026-06-08T12:01:32Z"
+    },
+    {
+      "id": "importacao-0093",
+      "date": "2026-06-08",
+      "taskId": "TASK 1395213",
+      "task": "US019",
+      "itemsWorked": "",
+      "hours": 2.0,
+      "createdAt": "2026-06-08T12:01:33Z",
+      "updatedAt": "2026-06-08T12:01:33Z"
+    },
+    {
+      "id": "importacao-0094",
+      "date": "2026-06-08",
+      "taskId": "TASK 1395217",
+      "task": "US021",
+      "itemsWorked": "",
+      "hours": 2.5,
+      "createdAt": "2026-06-08T12:01:34Z",
+      "updatedAt": "2026-06-08T12:01:34Z"
+    },
+    {
+      "id": "importacao-0095",
+      "date": "2026-06-09",
+      "taskId": "TASK 1394045",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-06-09T12:01:35Z",
+      "updatedAt": "2026-06-09T12:01:35Z"
+    },
+    {
+      "id": "importacao-0096",
+      "date": "2026-06-09",
+      "taskId": "TASK 1395217",
+      "task": "US021",
+      "itemsWorked": "",
+      "hours": 3.5,
+      "createdAt": "2026-06-09T12:01:36Z",
+      "updatedAt": "2026-06-09T12:01:36Z"
+    },
+    {
+      "id": "importacao-0097",
+      "date": "2026-06-09",
+      "taskId": "TASK 1396407",
+      "task": "US010 – Ajustes",
+      "itemsWorked": "",
+      "hours": 4.0,
+      "createdAt": "2026-06-09T12:01:37Z",
+      "updatedAt": "2026-06-09T12:01:37Z"
+    },
+    {
+      "id": "importacao-0098",
+      "date": "2026-06-10",
+      "taskId": "TASK 1394045",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-06-10T12:01:38Z",
+      "updatedAt": "2026-06-10T12:01:38Z"
+    },
+    {
+      "id": "importacao-0099",
+      "date": "2026-06-10",
+      "taskId": "TASK 1399991",
+      "task": "US012 – Refatorar",
+      "itemsWorked": "",
+      "hours": 7.5,
+      "createdAt": "2026-06-10T12:01:39Z",
+      "updatedAt": "2026-06-10T12:01:39Z"
+    },
+    {
+      "id": "importacao-0100",
+      "date": "2026-06-11",
+      "taskId": "TASK 1394045",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-06-11T12:01:40Z",
+      "updatedAt": "2026-06-11T12:01:40Z"
+    },
+    {
+      "id": "importacao-0101",
+      "date": "2026-06-11",
+      "taskId": "TASK 1394045",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Fabrica",
+      "hours": 1.5,
+      "createdAt": "2026-06-11T12:01:41Z",
+      "updatedAt": "2026-06-11T12:01:41Z"
+    },
+    {
+      "id": "importacao-0102",
+      "date": "2026-06-11",
+      "taskId": "TASK 1399991",
+      "task": "US012 – Refatorar",
+      "itemsWorked": "",
+      "hours": 6.0,
+      "createdAt": "2026-06-11T12:01:42Z",
+      "updatedAt": "2026-06-11T12:01:42Z"
+    },
+    {
+      "id": "importacao-0103",
+      "date": "2026-06-12",
+      "taskId": "TASK 1394045",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 0.5,
+      "createdAt": "2026-06-12T12:01:43Z",
+      "updatedAt": "2026-06-12T12:01:43Z"
+    },
+    {
+      "id": "importacao-0104",
+      "date": "2026-06-12",
+      "taskId": "TASK 1394045",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "P.O.",
+      "hours": 1.0,
+      "createdAt": "2026-06-12T12:01:44Z",
+      "updatedAt": "2026-06-12T12:01:44Z"
+    },
+    {
+      "id": "importacao-0105",
+      "date": "2026-06-12",
+      "taskId": "TASK 1395217",
+      "task": "US021",
+      "itemsWorked": "",
+      "hours": 1.0,
+      "createdAt": "2026-06-12T12:01:45Z",
+      "updatedAt": "2026-06-12T12:01:45Z"
+    },
+    {
+      "id": "importacao-0106",
+      "date": "2026-06-12",
+      "taskId": "TASK 1399991",
+      "task": "US012 – Refatorar",
+      "itemsWorked": "",
+      "hours": 4.0,
+      "createdAt": "2026-06-12T12:01:46Z",
+      "updatedAt": "2026-06-12T12:01:46Z"
+    },
+    {
+      "id": "importacao-0107",
+      "date": "2026-06-12",
+      "taskId": "TASK 1394045",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "ConectaVisaRS",
+      "hours": 1.5,
+      "createdAt": "2026-06-12T12:01:47Z",
+      "updatedAt": "2026-06-12T12:01:47Z"
+    },
+    {
+      "id": "importacao-0108",
+      "date": "2026-06-15",
+      "taskId": "TASK 1394045",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "Daily",
+      "hours": 1.0,
+      "createdAt": "2026-06-15T12:01:48Z",
+      "updatedAt": "2026-06-15T12:01:48Z"
+    },
+    {
+      "id": "importacao-0109",
+      "date": "2026-06-15",
+      "taskId": "TASK 1395217",
+      "task": "US021",
+      "itemsWorked": "",
+      "hours": 4.0,
+      "createdAt": "2026-06-15T12:01:49Z",
+      "updatedAt": "2026-06-15T12:01:49Z"
+    },
+    {
+      "id": "importacao-0110",
+      "date": "2026-06-15",
+      "taskId": "TASK 1394045",
+      "task": "Cerimônias e Reuniões",
+      "itemsWorked": "VISA",
+      "hours": 3.0,
+      "createdAt": "2026-06-15T12:01:50Z",
+      "updatedAt": "2026-06-15T12:01:50Z"
+    }
+  ]
+}

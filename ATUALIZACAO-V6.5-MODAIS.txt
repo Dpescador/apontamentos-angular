@@ -1,0 +1,9 @@
+ATUALIZAÇÃO V6.5 — MODAIS GLOBAIS
+
+- Componente global reutilizável para avisos, confirmações, erros e mensagens de sucesso.
+- Modal centralizado acima de toda a aplicação.
+- Fundo escurecido e bloqueio da rolagem enquanto o modal estiver aberto.
+- Exclusão deixou de usar window.confirm e passou a usar o modal da aplicação.
+- Validação, inclusão, edição, exclusão e importação usam o mesmo padrão visual.
+- Foco automático no botão principal e navegação por teclado mantida dentro do modal.
+- Escape confirma avisos simples e cancela diálogos de confirmação.

@@ -1,0 +1,81 @@
+<div class="container-fluid app-container py-4 py-lg-5">
+  <app-header
+    [fileStatus]="facade.repository.fileStatus()"
+    [linked]="facade.repository.isFileLinked()"
+    (connectTxt)="facade.connectTxt()"
+    (syncTxt)="facade.syncTxt()"
+    (importTxt)="facade.importFile($event)"
+    (exportTxt)="facade.exportTxt()"
+  />
+
+  <main class="d-grid gap-3">
+    <app-period-controls
+      [weekLabel]="facade.weekLabel()"
+      [referenceDate]="facade.referenceDate()"
+      [showWeekends]="facade.showWeekends()"
+      (toggleWeekends)="facade.toggleWeekends()"
+      (previousWeek)="facade.navigateWeek(-1)"
+      (nextWeek)="facade.navigateWeek(1)"
+      (referenceDateChange)="facade.changeReferenceDate($event)"
+    />
+
+    <app-summary-cards
+      [weekTotal]="facade.weekTotal()"
+      [weekBalance]="facade.weekBalance()"
+      [weekActiveDays]="facade.weekActiveDays()"
+      [weekAverage]="facade.weekAverage()"
+      [showWeekends]="facade.showWeekends()"
+    />
+
+    <section class="row g-3">
+      <div class="col-12 col-xl-8">
+        <app-bar-chart
+          kicker="Semana"
+          title="Horas por dia"
+          [days]="facade.weekDays()"
+          [targetHeight]="facade.weekTargetHeight()"
+        />
+      </div>
+
+      <div class="col-12 col-xl-4">
+        <app-month-summary
+          [monthLabel]="facade.monthLabel()"
+          [monthTotal]="facade.monthTotal()"
+          [monthExpected]="facade.monthExpected()"
+          [monthProgress]="facade.monthProgress()"
+          (previousMonth)="facade.navigateMonth(-1)"
+          (nextMonth)="facade.navigateMonth(1)"
+        />
+      </div>
+    </section>
+
+    <app-bar-chart
+      kicker="Visão mensal"
+      [title]="'Distribuição diária — ' + facade.monthLabel()"
+      [days]="facade.monthDays()"
+      [targetHeight]="facade.monthTargetHeight()"
+      [compact]="true"
+    />
+
+    <app-activity-form
+      [form]="facade.form"
+      [editing]="facade.editingId() !== null"
+      (save)="facade.submit()"
+      (cancel)="facade.cancelEdit()"
+    />
+
+    <app-activity-grid
+      [activities]="facade.paginatedActivities()"
+      [filteredCount]="facade.sortedActivities().length"
+      [totalFilteredHours]="facade.totalFilteredHours()"
+      [currentPage]="facade.currentPage()"
+      [totalPages]="facade.totalPages()"
+      [paginationStart]="facade.paginationStart()"
+      [paginationEnd]="facade.paginationEnd()"
+      (searchChange)="facade.changeSearch($event)"
+      (editActivity)="edit($event)"
+      (removeActivity)="facade.remove($event)"
+      (pageChange)="facade.navigatePage($event)"
+    />
+  </main>
+</div>
