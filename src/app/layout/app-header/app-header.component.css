@@ -1,0 +1,75 @@
+:host {
+  display: block;
+}
+
+.app-title {
+  font-size: clamp(1.65rem, 4vw, 2.5rem);
+  line-height: 1.1;
+}
+
+.app-subtitle {
+  max-width: 48rem;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+.header-title,
+.header-title > div {
+  min-width: 0;
+}
+
+.header-actions {
+  width: 100%;
+  margin-inline: 0;
+}
+
+.header-actions > div {
+  padding-inline: 0.25rem;
+}
+
+.header-actions .btn {
+  min-height: 42px;
+  white-space: nowrap;
+}
+
+@media (min-width: 576px) {
+  .header-actions {
+    width: auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .header-title {
+    max-width: 52%;
+  }
+
+  .header-actions {
+    max-width: 48%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header-title {
+    max-width: 58%;
+  }
+
+  .header-actions {
+    max-width: 42%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .header-actions .btn {
+    padding-inline: 1rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .header-actions .btn {
+    padding-inline: 0.5rem;
+    font-size: 0.82rem;
+  }
+
+  .header-actions .bi {
+    font-size: 1rem;
+  }
+}

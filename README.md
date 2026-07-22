@@ -6,6 +6,10 @@ Aplicação web para registrar atividades e acompanhar horas por dia, semana e m
 
 Consulte o arquivo [`HELP.md`](HELP.md) para aprender a instalar e utilizar todas as funções do sistema.
 
+## Responsividade Bootstrap
+
+A interface está adaptada aos breakpoints `xs`, `sm`, `md`, `lg`, `xl` e `xxl`. Em celulares e tablets, o histórico é exibido em cards para evitar rolagem horizontal. Consulte [RESPONSIVIDADE.md](RESPONSIVIDADE.md).
+
 ## Funcionalidades
 
 - Gráficos semanal e mensal com meta diária de 8 horas.

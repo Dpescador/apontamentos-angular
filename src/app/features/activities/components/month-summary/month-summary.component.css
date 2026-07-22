@@ -1,0 +1,29 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.month-summary {
+  min-height: 100%;
+}
+
+.month-total {
+  font-size: clamp(2rem, 7vw, 3.5rem);
+  line-height: 1.05;
+}
+
+.progress {
+  height: 0.75rem;
+}
+
+@media (min-width: 992px) {
+  .month-content {
+    margin-top: auto !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .month-total {
+    font-size: 2.25rem;
+  }
+}

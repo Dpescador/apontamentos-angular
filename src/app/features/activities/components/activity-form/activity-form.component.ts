@@ -8,6 +8,7 @@ import { ActivityFormGroup } from '../../models/activity-form.model';
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './activity-form.component.html',
+  styleUrl: './activity-form.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ActivityFormComponent {

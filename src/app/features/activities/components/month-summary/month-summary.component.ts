@@ -5,6 +5,7 @@ import { formatHours } from '../../../../shared/utils/date.utils';
   selector: 'app-month-summary',
   standalone: true,
   templateUrl: './month-summary.component.html',
+  styleUrl: './month-summary.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MonthSummaryComponent {

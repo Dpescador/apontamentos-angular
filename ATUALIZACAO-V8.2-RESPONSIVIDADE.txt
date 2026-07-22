@@ -1,0 +1,11 @@
+VERSÃO 8.2 — RESPONSIVIDADE BOOTSTRAP
+
+- Interface adaptada aos breakpoints xs, sm, md, lg, xl e xxl.
+- Cabeçalho e ações de TXT reorganizados conforme a largura da tela.
+- Cards semanais em 1, 2 ou 4 colunas.
+- Gráfico semanal e resumo mensal lado a lado a partir de lg.
+- Gráficos redimensionados por breakpoint e gráfico mensal sem rolagem horizontal.
+- Formulário responsivo com campos empilhados em celulares.
+- Grid convertido em cards abaixo de lg, sem rolagem horizontal.
+- Paginação e modais adaptados para telas pequenas.
+- Criado o documento RESPONSIVIDADE.md.

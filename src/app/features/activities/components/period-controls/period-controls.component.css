@@ -1,0 +1,35 @@
+:host {
+  display: block;
+}
+
+.period-actions {
+  width: 100%;
+  margin-inline: 0;
+}
+
+.period-actions > div {
+  padding-inline: 0.25rem;
+}
+
+.period-date-group {
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .period-date-group {
+    width: 270px;
+  }
+}
+
+@media (min-width: 992px) {
+  .period-actions {
+    width: auto;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .period-actions .btn,
+  .period-actions .form-control {
+    min-height: 42px;
+  }
+}

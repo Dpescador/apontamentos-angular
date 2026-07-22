@@ -17,11 +17,13 @@
 html {
   min-width: 320px;
   background: var(--bs-body-bg);
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   min-height: 100vh;
   margin: 0;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at top left, rgb(37 99 235 / 7%), transparent 30rem),
     var(--bs-body-bg);
@@ -29,8 +31,19 @@ body {
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+.min-w-0 {
+  min-width: 0 !important;
 }
 
 .letter-spacing {
@@ -51,29 +64,19 @@ input {
   box-shadow: 0 0 0 0.25rem rgb(25 135 84 / 14%);
 }
 
-.period-date-group {
-  width: 260px;
-}
-
 .scroll-margin {
   scroll-margin-top: 1rem;
 }
 
 .card {
   --bs-card-border-radius: 1rem;
-}
-
-@media (max-width: 575.98px) {
-  .period-date-group {
-    width: 100%;
-  }
+  min-width: 0;
 }
 
 body.modal-open {
   overflow: hidden;
   padding-right: 0 !important;
 }
-
 
 .bi {
   line-height: 1;
@@ -92,4 +95,63 @@ body.modal-open {
   place-items: center;
   flex: 0 0 auto;
   border-radius: 50%;
+}
+
+/* Extra small: <576px */
+@media (max-width: 575.98px) {
+  :root {
+    --bs-border-radius-lg: 0.8rem;
+  }
+
+  body {
+    font-size: 0.94rem;
+  }
+
+  .card {
+    --bs-card-border-radius: 0.85rem;
+  }
+
+  .icon-circle {
+    width: 2.1rem;
+    height: 2.1rem;
+  }
+
+  .letter-spacing {
+    letter-spacing: 0.09em;
+  }
+
+  .btn,
+  .form-control,
+  .form-select,
+  .input-group-text {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small: >=576px */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  body {
+    font-size: 0.96rem;
+  }
+}
+
+/* Medium: >=768px */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .card {
+    --bs-card-border-radius: 0.95rem;
+  }
+}
+
+/* Large and above */
+@media (min-width: 992px) {
+  .scroll-margin {
+    scroll-margin-top: 1.5rem;
+  }
+}
+
+/* Extra extra large: >=1400px */
+@media (min-width: 1400px) {
+  body {
+    font-size: 1rem;
+  }
 }

@@ -1,5 +1,7 @@
 :host {
   display: block;
+  height: 100%;
+  min-width: 0;
 }
 
 .chart-card-body {
@@ -10,16 +12,20 @@
   margin-bottom: 0.5rem;
 }
 
+.chart-title {
+  line-height: 1.25;
+}
+
 .target-legend {
   width: 20px;
+  flex: 0 0 auto;
   border-top: 2px dashed var(--bs-orange);
 }
 
 .chart-scroll {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow: visible;
 }
 
 .bar-chart {
@@ -38,12 +44,12 @@
 
 .week-chart {
   justify-content: space-around;
-  gap: clamp(8px, 2vw, 30px);
+  gap: clamp(4px, 1.8vw, 30px);
 }
 
 .month-chart {
   justify-content: stretch;
-  gap: clamp(1px, 0.3vw, 6px);
+  gap: clamp(0px, 0.25vw, 5px);
 }
 
 .plot-overlay {
@@ -104,8 +110,8 @@
 }
 
 .compact .bar-track {
-  width: clamp(12px, 46%, 32px);
-  min-width: 10px;
+  width: clamp(8px, 48%, 32px);
+  min-width: 6px;
   max-width: 32px;
 }
 
@@ -198,13 +204,13 @@
   box-shadow: 0 0 0 3px rgb(13 110 253 / 18%);
 }
 
-.bar-column > strong {
+.bar-day-name {
   align-self: end;
   font-size: 0.78rem;
   text-transform: capitalize;
 }
 
-.bar-column > small {
+.bar-day-number {
   color: var(--bs-secondary-color);
   font-size: 0.72rem;
 }
@@ -217,35 +223,147 @@
   font-weight: 700;
 }
 
-@media (max-width: 767.98px) {
+/* Extra small: <576px */
+@media (max-width: 575.98px) {
   .chart-card-body {
-    padding: 0.875rem;
+    padding: 0.75rem;
   }
 
   .chart-header {
-    flex-direction: column;
-    gap: 0.25rem !important;
+    margin-bottom: 0.25rem;
+  }
+
+  .chart-title {
+    font-size: 1rem;
+  }
+
+  .target-legend-label {
+    font-size: 0.7rem;
+  }
+
+  .bar-chart {
+    height: 175px;
+    padding-inline: 2px;
+  }
+
+  .week-chart {
+    gap: 2px;
+  }
+
+  .bar-column {
+    width: min(48px, 19%);
+    grid-template-rows: 1fr 17px 15px;
+  }
+
+  .bar-track {
+    width: 62%;
+    min-width: 12px;
+  }
+
+  .compact .bar-track {
+    width: clamp(4px, 52%, 12px);
+    min-width: 4px;
+  }
+
+  .compact .bar-value {
+    font-size: 0.48rem;
+  }
+
+  .bar-day-name {
+    font-size: 0.65rem;
+  }
+
+  .bar-day-number {
+    font-size: 0.62rem;
+  }
+
+  .compact .bar-day-name {
+    display: none;
+  }
+
+  .compact .bar-day-number {
+    font-size: 0.5rem;
+  }
+
+  .bar-tooltip {
+    min-width: 118px;
+    padding: 4px 6px;
+    font-size: 0.65rem;
+  }
+
+  .target-line {
+    right: 2px;
+    left: 2px;
+  }
+}
+
+/* Small: >=576px */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .chart-card-body {
+    padding: 0.875rem 1rem;
   }
 
   .bar-chart {
     height: 190px;
   }
 
-  .week-chart {
-    gap: 4px;
+  .compact .bar-track {
+    width: clamp(6px, 48%, 18px);
   }
+}
 
-  .bar-column {
-    width: min(52px, 18%);
+/* Medium: >=768px */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .bar-chart {
+    height: 200px;
   }
 
   .compact .bar-track {
-    width: clamp(8px, 50%, 18px);
-    min-width: 8px;
+    width: clamp(8px, 48%, 23px);
+  }
+}
+
+/* Large: >=992px */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .chart-card-body {
+    padding: 1rem;
   }
 
-  .compact .bar-value,
-  .compact .bar-column > small {
-    font-size: 0.55rem;
+  .bar-chart {
+    height: 205px;
+  }
+}
+
+/* Extra large: >=1200px */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .bar-chart {
+    height: 215px;
+  }
+}
+
+/* Extra extra large: >=1400px */
+@media (min-width: 1400px) {
+  .chart-card-body {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .bar-chart {
+    height: 225px;
+  }
+
+  .bar-day-name {
+    font-size: 0.82rem;
+  }
+
+  .bar-day-number {
+    font-size: 0.76rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar-target,
+  .bar,
+  .bar-tooltip {
+    transition: none;
   }
 }

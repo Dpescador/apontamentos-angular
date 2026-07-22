@@ -655,3 +655,16 @@ node --version
 ```bash
 npm --version
 ```
+
+
+## Uso em celulares e tablets
+
+A interface se adapta automaticamente ao tamanho da tela:
+
+- em celulares, os campos e botões ocupam a largura disponível;
+- os indicadores são exibidos um abaixo do outro;
+- o histórico deixa de ser uma tabela larga e passa a mostrar um card por apontamento;
+- os botões de editar e excluir permanecem disponíveis dentro de cada card;
+- em tablets e computadores, a interface utiliza mais colunas conforme o espaço disponível.
+
+Não é necessário ativar nenhuma configuração para usar o modo responsivo.

@@ -1,10 +1,13 @@
+:host {
+  display: block;
+}
+
 .grid-tools {
-  width: min(390px, 100%);
-  text-align: right;
+  width: min(430px, 100%);
 }
 
 .activity-table {
-  min-width: 1160px;
+  min-width: 1120px;
 }
 
 .activity-table th {
@@ -12,4 +15,139 @@
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.03em;
+}
+
+.items-cell {
+  max-width: 360px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.pagination-nav {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+@media (min-width: 1200px) {
+  .activity-table {
+    min-width: 100%;
+  }
+}
+
+/* Abaixo do breakpoint lg, cada registro vira um card legível. */
+@media (max-width: 991.98px) {
+  .activity-table-wrapper {
+    overflow: visible;
+    border: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .activity-table {
+    display: block;
+    min-width: 0;
+    background: transparent;
+  }
+
+  .activity-table thead {
+    display: none;
+  }
+
+  .activity-table tbody {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .activity-table tbody tr:not(.empty-row) {
+    display: block;
+    overflow: hidden;
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius-lg);
+    background: var(--bs-body-bg);
+    box-shadow: 0 0.2rem 0.75rem rgb(15 23 42 / 5%);
+  }
+
+  .activity-table tbody tr:not(.empty-row) td {
+    display: grid;
+    grid-template-columns: minmax(125px, 34%) minmax(0, 1fr);
+    align-items: start;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.7rem 0.85rem;
+    border-bottom: 1px solid var(--bs-border-color);
+    text-align: left !important;
+    white-space: normal;
+  }
+
+  .activity-table tbody tr:not(.empty-row) td::before {
+    color: var(--bs-secondary-color);
+    content: attr(data-label);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.035em;
+    text-transform: uppercase;
+  }
+
+  .activity-table tbody tr:not(.empty-row) td:last-child {
+    border-bottom: 0;
+  }
+
+  .activity-actions {
+    display: grid !important;
+    grid-template-columns: minmax(125px, 34%) auto auto !important;
+    align-items: center !important;
+    justify-content: stretch;
+  }
+
+  .activity-actions .btn {
+    margin-right: 0 !important;
+  }
+
+  .empty-row {
+    display: block;
+  }
+
+  .empty-row td {
+    display: block;
+    width: 100%;
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius-lg);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .grid-tools {
+    width: 100%;
+  }
+
+  .activity-table tbody tr:not(.empty-row) td {
+    grid-template-columns: 1fr !important;
+    gap: 0.25rem;
+  }
+
+  .activity-actions {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.5rem !important;
+  }
+
+  .activity-actions::before {
+    grid-column: 1 / -1;
+  }
+
+  .activity-actions .btn {
+    width: 100%;
+    min-width: 42px;
+  }
+
+  .pagination {
+    width: 100%;
+  }
+
+  .pagination .page-item {
+    flex: 1 1 auto;
+  }
+
+  .pagination .page-link {
+    justify-content: center;
+    width: 100%;
+  }
 }

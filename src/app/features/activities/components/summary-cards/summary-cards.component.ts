@@ -5,6 +5,7 @@ import { formatHours } from '../../../../shared/utils/date.utils';
   selector: 'app-summary-cards',
   standalone: true,
   templateUrl: './summary-cards.component.html',
+  styleUrl: './summary-cards.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SummaryCardsComponent {

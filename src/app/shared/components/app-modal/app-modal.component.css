@@ -24,12 +24,16 @@
 
 .modal-status-icon {
   display: grid;
-  width: 4rem;
-  height: 4rem;
+  width: clamp(3.25rem, 12vw, 4rem);
+  height: clamp(3.25rem, 12vw, 4rem);
   place-items: center;
   border-radius: 50%;
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 5vw, 1.8rem);
   font-weight: 800;
+}
+
+.modal-title-text {
+  overflow-wrap: anywhere;
 }
 
 .modal-variant-success {
@@ -54,6 +58,11 @@
 
 .modal-message {
   white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.modal-action {
+  min-width: 132px;
 }
 
 @keyframes modal-entry {
@@ -65,6 +74,33 @@
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .app-modal-dialog {
+    width: calc(100% - 1rem);
+    min-height: calc(100% - 1rem);
+    margin: 0.5rem auto;
+  }
+
+  .modal-content {
+    border-radius: 0.9rem;
+  }
+
+  .app-modal-footer {
+    flex-direction: column-reverse;
+  }
+
+  .modal-action {
+    width: 100%;
+    min-height: 44px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .app-modal-dialog {
+    width: min(90vw, 500px);
   }
 }
 

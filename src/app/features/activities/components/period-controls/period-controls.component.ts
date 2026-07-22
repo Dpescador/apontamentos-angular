@@ -4,6 +4,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
   selector: 'app-period-controls',
   standalone: true,
   templateUrl: './period-controls.component.html',
+  styleUrl: './period-controls.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PeriodControlsComponent {
