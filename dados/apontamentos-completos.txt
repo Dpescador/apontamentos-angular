@@ -107,7 +107,7 @@
       "sprint": "",
       "taskId": "TASK 1412342",
       "task": "Cerimônias e Reuniões",
-      "itemsWorked": "ConectaVisaRS",
+      "itemsWorked": "Sistema VS",
       "hours": 1.5,
       "createdAt": "2026-07-03T12:00:00.000Z",
       "updatedAt": "2026-07-03T12:00:00.000Z"
@@ -118,7 +118,7 @@
       "sprint": "",
       "taskId": "TASK 1412342",
       "task": "Cerimônias e Reuniões",
-      "itemsWorked": "Eixos",
+      "itemsWorked": "Projeto 01",
       "hours": 0.5,
       "createdAt": "2026-07-03T12:00:00.000Z",
       "updatedAt": "2026-07-03T12:00:00.000Z"
@@ -162,7 +162,7 @@
       "sprint": "",
       "taskId": "TASK 1412342",
       "task": "Cerimônias e Reuniões",
-      "itemsWorked": "SIVISA",
+      "itemsWorked": "VS",
       "hours": 3,
       "createdAt": "2026-07-06T12:00:00.000Z",
       "updatedAt": "2026-07-06T12:00:00.000Z"
@@ -182,7 +182,7 @@
       "id": "cc54d268-c8bb-4442-aa3d-2b7b0ca3ea35",
       "date": "2026-07-06",
       "sprint": "",
-      "taskId": "PRODUCT BACKLOG ITEM 1415084",
+      "taskId": "TASK 1415084",
       "task": "",
       "itemsWorked": "Ajustes",
       "hours": 2,
