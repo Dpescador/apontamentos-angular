@@ -1,4 +1,4 @@
-name: Publicar Angular no GitHub Pages
+name: Publicar aplicação Angular
 
 on:
   push:
@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Baixar o código
+      - name: Baixar projeto
         uses: actions/checkout@v4
 
       - name: Configurar Node.js
@@ -31,30 +31,30 @@ jobs:
           cache: npm
 
       - name: Instalar dependências
-        run: npm ci
+        run: npm ci --include=dev
 
-      - name: Definir endereço base
-        id: base-href
+      - name: Obter nome do repositório
+        id: repository
         shell: bash
         run: |
           REPO_NAME="${GITHUB_REPOSITORY#*/}"
 
           if [ "$REPO_NAME" = "${GITHUB_REPOSITORY_OWNER}.github.io" ]; then
-            echo "value=/" >> "$GITHUB_OUTPUT"
+            echo "base_href=/" >> "$GITHUB_OUTPUT"
           else
-            echo "value=/$REPO_NAME/" >> "$GITHUB_OUTPUT"
+            echo "base_href=/$REPO_NAME/" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Compilar aplicação Angular
+      - name: Compilar aplicação
         run: >
           npm run build --
           --configuration production
-          --base-href "${{ steps.base-href.outputs.value }}"
+          --base-href "${{ steps.repository.outputs.base_href }}"
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Enviar arquivos compilados
+      - name: Preparar arquivos para publicação
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist/apontamentos-dashboard/browser
@@ -68,6 +68,6 @@ jobs:
     needs: build
 
     steps:
-      - name: Publicar no GitHub Pages
+      - name: Publicar
         id: deployment
         uses: actions/deploy-pages@v4
