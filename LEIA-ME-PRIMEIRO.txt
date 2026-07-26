@@ -1,16 +1,16 @@
-DASHBOARD DE APONTAMENTOS - COMO ABRIR
+DASHBOARD DE APONTAMENTOS - CONFIGURAÇÃO INICIAL
 
-1. Extraia todo o arquivo ZIP.
-2. Dê dois cliques em INICIAR_APLICACAO.bat.
-3. Na primeira execução, aguarde o npm instalar as dependências.
-4. O navegador abrirá em http://localhost:4200.
+1. Crie e configure o projeto Supabase conforme SUPABASE.md.
+2. Execute os scripts do banco com database\scripts\liquibase-update.bat.
+3. Confira public\app-config.js. A versão 9.1 já está configurada com a Project URL e a Publishable key.
+4. Dê dois cliques em INICIAR_APLICACAO.bat.
+5. Crie sua conta ou entre com um usuário existente.
+6. Para migrar os dados antigos, use o botão Importar backup.
+
+A aplicação abrirá em http://localhost:4200.
 
 IMPORTANTE:
-Não abra src/index.html diretamente. Esse arquivo é um template do Angular e,
-sem a compilação do Angular CLI, a página aparece em branco.
-
-Se o comando npm não for reconhecido, instale o Node.js e reinicie o terminal.
-
-ATUALIZAÇÃO:
-- Use o botão "Exibir finais de semana" para mostrar sábado e domingo nos gráficos.
-- O histórico apresenta 20 registros por página.
+- Não abra src\index.html diretamente.
+- Use somente a Project URL e a Publishable key no Angular.
+- O banco Supabase é a fonte oficial; TXT/JSON é apenas backup.
+- Consulte HELP.md para uso e SUPABASE.md para configuração.

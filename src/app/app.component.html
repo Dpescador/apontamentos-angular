@@ -1,2 +1,16 @@
-<app-activity-dashboard-page />
+@if (auth.loading()) {
+  <main class="min-vh-100 d-grid place-items-center bg-body-tertiary">
+    <div class="text-center p-4">
+      <div class="spinner-border text-primary mb-3" role="status">
+        <span class="visually-hidden">Carregando...</span>
+      </div>
+      <p class="text-secondary mb-0">Validando sessão...</p>
+    </div>
+  </main>
+} @else if (auth.user()) {
+  <app-activity-dashboard-page />
+} @else {
+  <app-login-page />
+}
+
 <app-modal />

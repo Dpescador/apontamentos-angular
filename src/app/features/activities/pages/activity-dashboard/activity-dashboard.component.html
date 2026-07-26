@@ -1,11 +1,13 @@
 <div class="container-fluid app-container px-2 px-sm-3 px-md-4 px-lg-4 px-xl-5 px-xxl-5 py-3 py-md-4 py-xl-5">
   <app-header
-    [fileStatus]="facade.repository.fileStatus()"
-    [linked]="facade.repository.isFileLinked()"
-    (connectTxt)="facade.connectTxt()"
-    (syncTxt)="facade.syncTxt()"
-    (importTxt)="facade.importFile($event)"
-    (exportTxt)="facade.exportTxt()"
+    [databaseStatus]="facade.repository.status()"
+    [connected]="facade.repository.connected()"
+    [loading]="facade.repository.loading()"
+    [userEmail]="auth.user()?.email ?? ''"
+    (refreshDatabase)="facade.refreshDatabase()"
+    (importBackup)="facade.importFile($event)"
+    (exportBackup)="facade.exportBackup()"
+    (logout)="logout()"
   />
 
   <main class="d-grid gap-2 gap-sm-3 gap-xl-4">

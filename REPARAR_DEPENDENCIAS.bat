@@ -70,17 +70,8 @@ if exist "node_modules" (
 
 echo.
 echo Instalando todas as dependencias, incluindo devDependencies...
-if exist "package-lock.json" (
-  call npm ci --include=dev --registry=%NPM_REGISTRY% --no-audit --no-fund --prefer-online
-) else (
-  call npm install --include=dev --registry=%NPM_REGISTRY% --no-audit --no-fund --prefer-online
-)
-
-if errorlevel 1 (
-  echo.
-  echo npm ci falhou. Tentando npm install --include=dev...
-  call npm install --include=dev --registry=%NPM_REGISTRY% --no-audit --no-fund --prefer-online
-)
+rem Usa npm install para atualizar o package-lock ao incluir novas bibliotecas.
+call npm install --include=dev --registry=%NPM_REGISTRY% --no-audit --no-fund --prefer-online
 
 if errorlevel 1 (
   echo.
@@ -105,6 +96,20 @@ if not exist "node_modules\@angular\build\package.json" (
 if not exist "node_modules\bootstrap-icons\package.json" (
   echo.
   echo ERRO: bootstrap-icons nao foi instalado.
+  pause
+  exit /b 1
+)
+
+if not exist "node_modules\@supabase\supabase-js\package.json" (
+  echo.
+  echo ERRO: @supabase/supabase-js nao foi instalado.
+  pause
+  exit /b 1
+)
+
+if not exist "node_modules\@types\node\package.json" (
+  echo.
+  echo ERRO: @types/node nao foi instalado.
   pause
   exit /b 1
 )

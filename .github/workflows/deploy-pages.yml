@@ -1,10 +1,8 @@
-name: Publicar aplicação Angular
+name: Publicar Angular no GitHub Pages
 
 on:
   push:
-    branches:
-      - main
-
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -21,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Baixar projeto
+      - name: Baixar código
         uses: actions/checkout@v4
 
       - name: Configurar Node.js
@@ -30,31 +28,77 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Instalar dependências
-        run: npm ci --include=dev
+      - name: Bloquear credenciais administrativas no frontend
+        shell: bash
+        run: |
+          if grep -REIn --exclude-dir=.git --exclude-dir=node_modules --exclude='*.md' --exclude='*.txt' 'sb_[s]ecret_[A-Za-z0-9_-]{20,}' .; then
+            echo 'Foi encontrada uma chave administrativa no projeto. Remova-a antes de publicar.'
+            exit 1
+          fi
 
-      - name: Obter nome do repositório
-        id: repository
+      - name: Instalar dependências
+        run: npm install --include=dev --no-audit --no-fund
+
+      - name: Configurar conexão pública do Supabase
+        shell: bash
+        env:
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_PUBLISHABLE_KEY: ${{ vars.SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          if [ -n "$SUPABASE_URL" ] && [ -n "$SUPABASE_PUBLISHABLE_KEY" ]; then
+            if [[ ! "$SUPABASE_URL" =~ ^https://[a-z0-9-]+\.supabase\.co$ ]]; then
+              echo 'SUPABASE_URL inválida.'
+              exit 1
+            fi
+
+            if [[ ! "$SUPABASE_PUBLISHABLE_KEY" =~ ^sb_publishable_ ]]; then
+              echo 'Use somente uma Supabase Publishable key no GitHub Pages.'
+              exit 1
+            fi
+
+            node <<'NODE'
+          const fs = require('node:fs');
+          const config = {
+            supabaseUrl: process.env.SUPABASE_URL,
+            supabasePublishableKey: process.env.SUPABASE_PUBLISHABLE_KEY
+          };
+          fs.writeFileSync(
+            'public/app-config.js',
+            `window.__APP_CONFIG__ = ${JSON.stringify(config, null, 2)};\n`,
+            'utf8'
+          );
+          NODE
+          else
+            echo 'Repository Variables não informadas; usando a configuração pública versionada em public/app-config.js.'
+
+            if grep -Eq 'SEU-PROJETO|SUA_CHAVE|EXEMPLO' public/app-config.js; then
+              echo 'Configure SUPABASE_URL e SUPABASE_PUBLISHABLE_KEY nas Repository Variables.'
+              exit 1
+            fi
+          fi
+
+      - name: Calcular base href
+        id: base
         shell: bash
         run: |
           REPO_NAME="${GITHUB_REPOSITORY#*/}"
-
           if [ "$REPO_NAME" = "${GITHUB_REPOSITORY_OWNER}.github.io" ]; then
-            echo "base_href=/" >> "$GITHUB_OUTPUT"
+            echo "value=/" >> "$GITHUB_OUTPUT"
           else
-            echo "base_href=/$REPO_NAME/" >> "$GITHUB_OUTPUT"
+            echo "value=/$REPO_NAME/" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Compilar aplicação
-        run: >
-          npm run build --
-          --configuration production
-          --base-href "${{ steps.repository.outputs.base_href }}"
+      - name: Compilar Angular
+        run: npm run build -- --configuration production --base-href "${{ steps.base.outputs.value }}"
 
-      - name: Configurar GitHub Pages
+      - name: Criar fallback do GitHub Pages
+        shell: bash
+        run: cp dist/apontamentos-dashboard/browser/index.html dist/apontamentos-dashboard/browser/404.html
+
+      - name: Configurar Pages
         uses: actions/configure-pages@v5
 
-      - name: Preparar arquivos para publicação
+      - name: Enviar artefato
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist/apontamentos-dashboard/browser
@@ -63,7 +107,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     runs-on: ubuntu-latest
     needs: build
 

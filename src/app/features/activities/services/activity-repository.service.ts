@@ -1,179 +1,138 @@
-import { Injectable, inject, signal } from '@angular/core';
-import { FileSystemService } from '../../../core/services/file-system.service';
-import { StorageService } from '../../../core/services/storage.service';
-import { INITIAL_ACTIVITIES } from '../data/initial-activities';
+import { Injectable, effect, inject, signal } from '@angular/core';
+import { AuthService } from '../../../core/services/auth.service';
 import { Activity } from '../models/activity.model';
+import { ActivityApiService } from './activity-api.service';
 import { ActivityFileService } from './activity-file.service';
-
-const STORAGE_KEY = 'apontamentos-dashboard.activities.v1';
-const HANDLE_KEY = 'activities-txt';
 
 @Injectable({ providedIn: 'root' })
 export class ActivityRepositoryService {
-  private readonly storage = inject(StorageService);
-  private readonly fileSystem = inject(FileSystemService);
+  private readonly auth = inject(AuthService);
+  private readonly api = inject(ActivityApiService);
   private readonly activityFile = inject(ActivityFileService);
 
   private readonly activitiesState = signal<Activity[]>([]);
-  private fileHandle: FileSystemFileHandle | null = null;
+  private loadedUserId: string | null = null;
 
   readonly activities = this.activitiesState.asReadonly();
-  readonly fileStatus = signal('Carregando dados...');
-  readonly isFileLinked = signal(false);
+  readonly status = signal('Aguardando autenticação...');
+  readonly loading = signal(false);
+  readonly connected = signal(false);
 
   constructor() {
-    void this.initialize();
+    effect(() => {
+      const user = this.auth.user();
+
+      if (!user) {
+        this.loadedUserId = null;
+        this.activitiesState.set([]);
+        this.connected.set(false);
+        this.status.set('Entre com sua conta para carregar os apontamentos.');
+        return;
+      }
+
+      if (this.loadedUserId !== user.id) {
+        this.loadedUserId = user.id;
+        void this.refresh().catch((error: unknown) => {
+          console.error('Falha ao carregar os apontamentos do Supabase.', error);
+        });
+      }
+    });
   }
 
   findById(id: string): Activity | undefined {
     return this.activitiesState().find((activity) => activity.id === id);
   }
 
-  async upsert(activity: Activity): Promise<void> {
-    const existing = this.activitiesState().some((item) => item.id === activity.id);
-    const next = existing
-      ? this.activitiesState().map((item) => (item.id === activity.id ? activity : item))
-      : [...this.activitiesState(), activity];
+  async refresh(): Promise<void> {
+    if (!this.auth.user()) {
+      return;
+    }
 
-    await this.commit(next);
+    this.loading.set(true);
+    this.status.set('Carregando apontamentos do Supabase...');
+
+    try {
+      const activities = await this.api.findAll();
+      this.activitiesState.set(activities);
+      this.connected.set(true);
+      this.status.set(
+        activities.length
+          ? `${activities.length} apontamento(s) carregado(s) do Supabase.`
+          : 'Banco conectado. Nenhum apontamento cadastrado.'
+      );
+    } catch (error: unknown) {
+      this.connected.set(false);
+      this.status.set('Não foi possível carregar os dados do Supabase.');
+      throw error;
+    } finally {
+      this.loading.set(false);
+    }
+  }
+
+  async upsert(activity: Activity): Promise<void> {
+    this.loading.set(true);
+
+    try {
+      const existing = this.findById(activity.id);
+      const saved = existing
+        ? await this.api.update(activity)
+        : await this.api.create(activity);
+
+      this.activitiesState.update((current) =>
+        existing
+          ? current.map((item) => (item.id === saved.id ? saved : item))
+          : [...current, saved]
+      );
+      this.connected.set(true);
+      this.status.set('Alterações gravadas no Supabase.');
+    } catch (error: unknown) {
+      this.connected.set(false);
+      this.status.set('Falha ao gravar o apontamento no Supabase.');
+      throw error;
+    } finally {
+      this.loading.set(false);
+    }
   }
 
   async remove(id: string): Promise<void> {
-    await this.commit(this.activitiesState().filter((activity) => activity.id !== id));
-  }
-
-  async connectTxt(): Promise<void> {
-    if (!this.fileSystem.supportsFilePicker()) {
-      this.fileStatus.set('Seu navegador não permite vincular um TXT. Use Importar/Exportar TXT.');
-      this.exportTxt();
-      return;
-    }
+    this.loading.set(true);
 
     try {
-      const handle = await this.fileSystem.pickTextFile();
-      this.fileHandle = handle;
-      await this.storage.saveFileHandle(HANDLE_KEY, handle);
-
-      const selectedText = await this.fileSystem.readText(handle);
-      if (selectedText.trim()) {
-        const imported = this.activityFile.parse(selectedText);
-        const merged = this.activityFile.merge(this.activitiesState(), imported);
-        this.setActivities(merged);
-      }
-
-      await this.writeLinkedFile();
-      this.isFileLinked.set(true);
-      this.fileStatus.set(`TXT vinculado: ${handle.name}`);
+      await this.api.remove(id);
+      this.activitiesState.update((current) =>
+        current.filter((activity) => activity.id !== id)
+      );
+      this.connected.set(true);
+      this.status.set('Apontamento excluído do Supabase.');
     } catch (error: unknown) {
-      if (!this.fileSystem.isAbortError(error)) {
-        console.error(error);
-        this.fileStatus.set('Não foi possível vincular o arquivo TXT.');
-      }
+      this.connected.set(false);
+      this.status.set('Falha ao excluir o apontamento no Supabase.');
+      throw error;
+    } finally {
+      this.loading.set(false);
     }
   }
 
-  async syncNow(): Promise<void> {
-    if (!this.fileHandle) {
-      await this.connectTxt();
-      return;
-    }
+  async importBackup(file: File): Promise<number> {
+    this.loading.set(true);
 
     try {
-      await this.writeLinkedFile();
-      this.fileStatus.set(`TXT atualizado: ${this.fileHandle.name}`);
+      const imported = await this.activityFile.readFile(file);
+      await this.api.upsertMany(imported);
+      await this.refresh();
+      this.status.set(`${imported.length} registro(s) importado(s) para o Supabase.`);
+      return imported.length;
     } catch (error: unknown) {
-      console.error(error);
-      this.fileStatus.set('O navegador precisa de permissão para atualizar o TXT.');
+      this.connected.set(false);
+      this.status.set('Falha ao importar o backup para o Supabase.');
+      throw error;
+    } finally {
+      this.loading.set(false);
     }
   }
 
-  async importTxt(file: File): Promise<void> {
-    const imported = await this.activityFile.readFile(file);
-    await this.commit(imported);
-    this.fileStatus.set(`Dados importados de ${file.name}`);
-  }
-
-  exportTxt(): void {
+  exportBackup(): void {
     this.activityFile.download(this.activitiesState());
-    this.fileStatus.set('Cópia do TXT exportada.');
-  }
-
-  private async initialize(): Promise<void> {
-    const localData = this.readStoredActivities();
-    this.setActivities(localData.length ? localData : INITIAL_ACTIVITIES);
-
-    try {
-      this.fileHandle = await this.storage.loadFileHandle(HANDLE_KEY);
-      if (!this.fileHandle) {
-        this.fileStatus.set('Dados salvos no navegador. Vincule um TXT para gravação direta.');
-        return;
-      }
-
-      const permission = await this.fileSystem.queryPermission(this.fileHandle, 'read');
-      if (permission !== 'granted') {
-        this.fileStatus.set('TXT conhecido, mas a permissão precisa ser renovada em Sincronizar.');
-        return;
-      }
-
-      const text = await this.fileSystem.readText(this.fileHandle);
-      if (text.trim()) {
-        const imported = this.activityFile.parse(text);
-        this.setActivities(this.activityFile.merge(this.activitiesState(), imported));
-      }
-
-      this.isFileLinked.set(true);
-      this.fileStatus.set(`TXT vinculado: ${this.fileHandle.name}`);
-    } catch (error: unknown) {
-      console.warn('Não foi possível recuperar o TXT vinculado.', error);
-      this.fileStatus.set('Dados salvos no navegador. Vincule um TXT para gravação direta.');
-    }
-  }
-
-  private async commit(activities: Activity[]): Promise<void> {
-    this.setActivities(activities);
-
-    if (!this.fileHandle) {
-      this.fileStatus.set('Salvo no navegador. Vincule um TXT para gravação direta.');
-      return;
-    }
-
-    try {
-      await this.writeLinkedFile();
-      this.fileStatus.set(`Alterações gravadas em ${this.fileHandle.name}`);
-    } catch (error: unknown) {
-      console.warn('Alteração salva localmente, mas não no TXT.', error);
-      this.fileStatus.set('Salvo no navegador. Clique em Sincronizar para atualizar o TXT.');
-    }
-  }
-
-  private async writeLinkedFile(): Promise<void> {
-    if (!this.fileHandle) {
-      return;
-    }
-
-    await this.fileSystem.writeText(
-      this.fileHandle,
-      this.activityFile.serialize(this.activitiesState())
-    );
-    this.isFileLinked.set(true);
-  }
-
-  private setActivities(activities: Activity[]): void {
-    this.activitiesState.set(activities);
-    this.storage.writeJson(STORAGE_KEY, activities);
-  }
-
-  private readStoredActivities(): Activity[] {
-    const stored = this.storage.readJson(STORAGE_KEY);
-    if (!Array.isArray(stored)) {
-      return [];
-    }
-
-    try {
-      return this.activityFile.normalizeMany(stored);
-    } catch (error: unknown) {
-      console.warn('Dados locais ignorados por estarem inválidos.', error);
-      return [];
-    }
+    this.status.set('Backup TXT/JSON exportado.');
   }
 }

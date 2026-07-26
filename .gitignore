@@ -6,3 +6,12 @@
 !.vscode/settings.json
 .DS_Store
 Thumbs.db
+
+# Configurações locais e credenciais do Liquibase
+database/liquibase.properties
+database/liquibase.properties.example
+
+# Arquivos locais de ambiente
+.env
+.env.*
+!.env.example

@@ -50,6 +50,8 @@ if not exist "node_modules\@angular\cli\bin\ng.js" set "INSTALL_REQUIRED=1"
 if not exist "node_modules\@angular\compiler-cli\package.json" set "INSTALL_REQUIRED=1"
 if not exist "node_modules\bootstrap\package.json" set "INSTALL_REQUIRED=1"
 if not exist "node_modules\bootstrap-icons\package.json" set "INSTALL_REQUIRED=1"
+if not exist "node_modules\@supabase\supabase-js\package.json" set "INSTALL_REQUIRED=1"
+if not exist "node_modules\@types\node\package.json" set "INSTALL_REQUIRED=1"
 
 if "%INSTALL_REQUIRED%"=="1" (
   echo Dependencias ausentes ou instalacao anterior incompleta.

@@ -1,0 +1,12 @@
+VERSÃO 9.0 — SUPABASE + LIQUIBASE
+
+- PostgreSQL do Supabase como armazenamento principal.
+- Autenticação por e-mail e senha.
+- Row Level Security para separar os registros por usuário.
+- CRUD completo via @supabase/supabase-js.
+- Importação do TXT/JSON antigo diretamente para o banco.
+- Exportação mantida como backup.
+- Indicador de conexão e botão para atualizar os dados.
+- Changelogs Liquibase com tabela, índices, trigger, grants e políticas RLS.
+- Configuração pública em public/app-config.js.
+- Manual SUPABASE.md.

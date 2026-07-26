@@ -8,20 +8,22 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppHeaderComponent {
-  @Input() fileStatus = '';
-  @Input() linked = false;
+  @Input() databaseStatus = '';
+  @Input() connected = false;
+  @Input() loading = false;
+  @Input() userEmail = '';
 
-  @Output() connectTxt = new EventEmitter<void>();
-  @Output() syncTxt = new EventEmitter<void>();
-  @Output() importTxt = new EventEmitter<File>();
-  @Output() exportTxt = new EventEmitter<void>();
+  @Output() refreshDatabase = new EventEmitter<void>();
+  @Output() importBackup = new EventEmitter<File>();
+  @Output() exportBackup = new EventEmitter<void>();
+  @Output() logout = new EventEmitter<void>();
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     const file = input.files?.[0];
 
     if (file) {
-      this.importTxt.emit(file);
+      this.importBackup.emit(file);
     }
 
     input.value = '';

@@ -1,4 +1,4 @@
-import { Injectable, computed, inject, signal } from '@angular/core';
+import { Injectable, computed, effect, inject, signal } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ModalService } from '../../../core/services/modal.service';
 import {
@@ -41,6 +41,28 @@ export class ActivityDashboardFacade {
     itemsWorked: ['', Validators.maxLength(160)],
     hours: [1, [Validators.required, Validators.min(0.1), Validators.max(24)]]
   });
+
+  private referenceInitialized = false;
+
+  constructor() {
+    effect(() => {
+      const activities = this.repository.activities();
+      if (this.referenceInitialized || !activities.length) {
+        return;
+      }
+
+      const latestDate = [...activities]
+        .map((activity) => activity.date)
+        .sort((left, right) => right.localeCompare(left))[0];
+
+      if (latestDate) {
+        this.referenceDate.set(latestDate);
+        this.form.controls.date.setValue(latestDate, { emitEvent: false });
+      }
+
+      this.referenceInitialized = true;
+    });
+  }
 
   readonly sortedActivities = computed(() => {
     const term = this.normalizeSearch(this.searchTerm());
@@ -210,19 +232,24 @@ export class ActivityDashboardFacade {
       updatedAt: now
     };
 
-    await this.repository.upsert(activity);
-    this.referenceDate.set(activity.date);
-    this.currentPage.set(1);
-    this.cancelEdit();
+    try {
+      await this.repository.upsert(activity);
+      this.referenceDate.set(activity.date);
+      this.currentPage.set(1);
+      this.cancelEdit();
 
-    await this.modal.alert({
-      title: existing ? 'Apontamento atualizado' : 'Apontamento adicionado',
-      message: existing
-        ? 'As alterações foram salvas com sucesso.'
-        : 'A atividade foi adicionada ao histórico com sucesso.',
-      variant: 'success',
-      confirmText: 'Continuar'
-    });
+      await this.modal.alert({
+        title: existing ? 'Apontamento atualizado' : 'Apontamento adicionado',
+        message: existing
+          ? 'As alterações foram gravadas no Supabase.'
+          : 'A atividade foi gravada no Supabase com sucesso.',
+        variant: 'success',
+        confirmText: 'Continuar'
+      });
+    } catch (error: unknown) {
+      console.error(error);
+      await this.showDatabaseError('Não foi possível gravar o apontamento.', error);
+    }
   }
 
   edit(activity: Activity): void {
@@ -248,7 +275,7 @@ export class ActivityDashboardFacade {
   async remove(activity: Activity): Promise<void> {
     const confirmed = await this.modal.confirm({
       title: 'Excluir apontamento?',
-      message: `O apontamento de ${formatDate(activity.date)}, com ${formatHours(activity.hours)} hora(s), será removido permanentemente.`,
+      message: `O apontamento de ${formatDate(activity.date)}, com ${formatHours(activity.hours)} hora(s), será removido permanentemente do banco.`,
       variant: 'danger',
       confirmText: 'Excluir',
       cancelText: 'Cancelar'
@@ -258,20 +285,25 @@ export class ActivityDashboardFacade {
       return;
     }
 
-    await this.repository.remove(activity.id);
+    try {
+      await this.repository.remove(activity.id);
 
-    if (this.editingId() === activity.id) {
-      this.cancelEdit();
+      if (this.editingId() === activity.id) {
+        this.cancelEdit();
+      }
+
+      this.currentPage.set(Math.min(this.currentPage(), this.totalPages()));
+
+      await this.modal.alert({
+        title: 'Apontamento excluído',
+        message: 'O registro foi removido do Supabase.',
+        variant: 'success',
+        confirmText: 'Continuar'
+      });
+    } catch (error: unknown) {
+      console.error(error);
+      await this.showDatabaseError('Não foi possível excluir o apontamento.', error);
     }
-
-    this.currentPage.set(Math.min(this.currentPage(), this.totalPages()));
-
-    await this.modal.alert({
-      title: 'Apontamento excluído',
-      message: 'O registro foi removido do histórico.',
-      variant: 'success',
-      confirmText: 'Continuar'
-    });
   }
 
   cancelEdit(): void {
@@ -316,69 +348,70 @@ export class ActivityDashboardFacade {
     this.referenceDate.set(toIsoDate(date));
   }
 
-  async connectTxt(): Promise<void> {
-    const previousStatus = this.repository.fileStatus();
-    await this.repository.connectTxt();
-    const currentStatus = this.repository.fileStatus();
-
-    if (currentStatus !== previousStatus) {
+  async refreshDatabase(): Promise<void> {
+    try {
+      await this.repository.refresh();
       await this.modal.alert({
-        title: this.repository.isFileLinked()
-          ? 'Arquivo TXT vinculado'
-          : 'Atenção ao arquivo TXT',
-        message: currentStatus,
-        variant: this.repository.isFileLinked() ? 'success' : 'warning',
+        title: 'Dados atualizados',
+        message: this.repository.status(),
+        variant: 'success',
         confirmText: 'Continuar'
       });
+    } catch (error: unknown) {
+      console.error(error);
+      await this.showDatabaseError('Não foi possível atualizar os dados.', error);
     }
   }
 
-  async syncTxt(): Promise<void> {
-    const previousStatus = this.repository.fileStatus();
-    await this.repository.syncNow();
-    const currentStatus = this.repository.fileStatus();
-
-    if (currentStatus !== previousStatus || this.repository.isFileLinked()) {
-      await this.modal.alert({
-        title: this.repository.isFileLinked()
-          ? 'Sincronização concluída'
-          : 'Não foi possível sincronizar',
-        message: currentStatus,
-        variant: this.repository.isFileLinked() ? 'success' : 'warning',
-        confirmText: 'Continuar'
-      });
-    }
-  }
-
-  async exportTxt(): Promise<void> {
-    this.repository.exportTxt();
+  async exportBackup(): Promise<void> {
+    this.repository.exportBackup();
     await this.modal.alert({
-      title: 'Arquivo exportado',
-      message: 'Uma cópia do arquivo apontamentos.txt foi gerada para download.',
+      title: 'Backup exportado',
+      message: 'Uma cópia dos apontamentos foi gerada em TXT/JSON para download.',
       variant: 'success',
       confirmText: 'Continuar'
     });
   }
 
   async importFile(file: File): Promise<void> {
+    const confirmed = await this.modal.confirm({
+      title: 'Importar backup para o banco?',
+      message: 'Os registros do arquivo serão incluídos ou atualizados no Supabase. Registros com o mesmo ID serão substituídos.',
+      variant: 'warning',
+      confirmText: 'Importar',
+      cancelText: 'Cancelar'
+    });
+
+    if (!confirmed) {
+      return;
+    }
+
     try {
-      await this.repository.importTxt(file);
+      const count = await this.repository.importBackup(file);
       this.currentPage.set(1);
       await this.modal.alert({
         title: 'Importação concluída',
-        message: `Os dados de ${file.name} foram carregados com sucesso.`,
+        message: `${count} registro(s) de ${file.name} foram gravados no Supabase.`,
         variant: 'success',
         confirmText: 'Continuar'
       });
     } catch (error: unknown) {
       console.error(error);
-      await this.modal.alert({
-        title: 'Falha na importação',
-        message: 'O arquivo selecionado não possui o formato esperado. Verifique o conteúdo e tente novamente.',
-        variant: 'danger',
-        confirmText: 'Entendi'
-      });
+      await this.showDatabaseError(
+        'Não foi possível importar o arquivo. Verifique o formato e a conexão com o Supabase.',
+        error
+      );
     }
+  }
+
+  private async showDatabaseError(message: string, error: unknown): Promise<void> {
+    const details = error instanceof Error ? `\n\nDetalhes: ${error.message}` : '';
+    await this.modal.alert({
+      title: 'Erro no banco de dados',
+      message: message + details,
+      variant: 'danger',
+      confirmText: 'Entendi'
+    });
   }
 
   private normalizeSearch(value: string | number | null | undefined): string {

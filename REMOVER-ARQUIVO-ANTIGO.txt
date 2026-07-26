@@ -1,0 +1,5 @@
+Remova do projeto, caso ainda exista:
+
+database/liquibase.properties.example
+
+O modelo seguro agora é database/liquibase.properties.template.

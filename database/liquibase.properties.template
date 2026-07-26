@@ -1,0 +1,14 @@
+# Copie este arquivo para database/liquibase.properties e preencha os dados.
+# O arquivo liquibase.properties é ignorado pelo Git e não deve ser publicado.
+
+changeLogFile=database/changelog/db.changelog-master.yaml
+
+# Use a conexão direta quando sua rede tiver IPv6 ou o Session Pooler na porta 5432.
+url=jdbc:postgresql://SEU_HOST:5432/postgres?sslmode=require
+username=postgres.SEU_PROJECT_REF
+password=SUA_SENHA_DO_BANCO_POSTGRES
+
+driver=org.postgresql.Driver
+defaultSchemaName=public
+liquibaseSchemaName=public
+logLevel=info

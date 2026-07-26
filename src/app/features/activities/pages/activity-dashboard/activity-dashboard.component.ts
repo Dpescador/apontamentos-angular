@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { AuthService } from '../../../../core/services/auth.service';
+import { ModalService } from '../../../../core/services/modal.service';
 import { AppHeaderComponent } from '../../../../layout/app-header/app-header.component';
 import { BarChartComponent } from '../../../../shared/components/bar-chart/bar-chart.component';
 import { ActivityFormComponent } from '../../components/activity-form/activity-form.component';
@@ -23,10 +25,13 @@ import { ActivityDashboardFacade } from '../../services/activity-dashboard.facad
   ],
   templateUrl: './activity-dashboard.component.html',
   styleUrl: './activity-dashboard.component.css',
+  providers: [ActivityDashboardFacade],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ActivityDashboardComponent {
   readonly facade = inject(ActivityDashboardFacade);
+  readonly auth = inject(AuthService);
+  private readonly modal = inject(ModalService);
 
   edit(activity: Activity): void {
     this.facade.edit(activity);
@@ -36,5 +41,19 @@ export class ActivityDashboardComponent {
         block: 'start'
       });
     });
+  }
+
+  async logout(): Promise<void> {
+    const confirmed = await this.modal.confirm({
+      title: 'Sair do sistema?',
+      message: 'Sua sessão será encerrada neste dispositivo.',
+      variant: 'warning',
+      confirmText: 'Sair',
+      cancelText: 'Cancelar'
+    });
+
+    if (confirmed) {
+      await this.auth.signOut();
+    }
   }
 }

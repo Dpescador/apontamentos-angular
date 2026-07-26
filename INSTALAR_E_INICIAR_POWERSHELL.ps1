@@ -18,5 +18,13 @@ if (-not (Test-Path 'node_modules/bootstrap-icons/package.json')) {
     throw 'O pacote bootstrap-icons nao foi instalado.'
 }
 
+if (-not (Test-Path 'node_modules/@supabase/supabase-js/package.json')) {
+    throw 'O pacote @supabase/supabase-js nao foi instalado.'
+}
+
+if (-not (Test-Path 'node_modules/@types/node/package.json')) {
+    throw 'O pacote @types/node nao foi instalado.'
+}
+
 Write-Host 'Iniciando Angular pelo CLI local...' -ForegroundColor Green
 & "$PSScriptRoot/node_modules/.bin/ng.cmd" serve --open

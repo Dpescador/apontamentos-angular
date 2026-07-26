@@ -1,0 +1,135 @@
+<main class="auth-page container-fluid py-4 py-md-5">
+  <section class="auth-card card border-0 shadow-lg mx-auto overflow-hidden">
+    <div class="row g-0">
+      <div class="col-lg-6 auth-brand p-4 p-sm-5 d-flex flex-column justify-content-between">
+        <div>
+          <span class="auth-icon d-inline-flex align-items-center justify-content-center mb-4">
+            <i class="bi bi-clock-history" aria-hidden="true"></i>
+          </span>
+          <p class="text-uppercase fw-bold small letter-spacing mb-2">Controle de horas</p>
+          <h1 class="display-6 fw-bold mb-3">Apontamentos de atividades</h1>
+          <p class="lead mb-0 opacity-75">
+            Seus lançamentos agora ficam protegidos no PostgreSQL do Supabase e podem ser acessados em diferentes dispositivos.
+          </p>
+        </div>
+
+        <div class="d-none d-lg-grid gap-3 mt-5">
+          <div class="d-flex gap-3">
+            <i class="bi bi-database-check fs-4" aria-hidden="true"></i>
+            <span>Persistência em banco de dados</span>
+          </div>
+          <div class="d-flex gap-3">
+            <i class="bi bi-shield-lock fs-4" aria-hidden="true"></i>
+            <span>Dados separados por usuário com RLS</span>
+          </div>
+          <div class="d-flex gap-3">
+            <i class="bi bi-cloud-arrow-up fs-4" aria-hidden="true"></i>
+            <span>Backup TXT/JSON mantido como opção</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 bg-body p-4 p-sm-5">
+        @if (!auth.configured) {
+          <div class="alert alert-warning d-flex gap-3 align-items-start mb-0" role="alert">
+            <i class="bi bi-gear-fill fs-4" aria-hidden="true"></i>
+            <div>
+              <h2 class="h5 alert-heading">Configure o Supabase</h2>
+              <p class="mb-2">
+                Preencha a URL e a Publishable key no arquivo:
+              </p>
+              <code>public/app-config.js</code>
+              <p class="small mt-3 mb-0">
+                Depois reinicie a aplicação. Consulte <strong>SUPABASE.md</strong> para o passo a passo completo.
+              </p>
+            </div>
+          </div>
+        } @else {
+          <div class="mb-4">
+            <p class="text-primary fw-bold text-uppercase small letter-spacing mb-2">
+              {{ mode() === 'signin' ? 'Acesso ao sistema' : 'Criar conta' }}
+            </p>
+            <h2 class="h3 fw-bold mb-2">
+              {{ mode() === 'signin' ? 'Entre com sua conta' : 'Cadastre seu acesso' }}
+            </h2>
+            <p class="text-secondary mb-0">
+              {{ mode() === 'signin'
+                ? 'Use o e-mail e a senha cadastrados no Supabase.'
+                : 'Cada usuário visualizará apenas seus próprios apontamentos.' }}
+            </p>
+          </div>
+
+          @if (message()) {
+            <div class="alert alert-success" role="status">
+              <i class="bi bi-check-circle-fill me-2" aria-hidden="true"></i>{{ message() }}
+            </div>
+          }
+
+          @if (errorMessage()) {
+            <div class="alert alert-danger" role="alert">
+              <i class="bi bi-exclamation-triangle-fill me-2" aria-hidden="true"></i>{{ errorMessage() }}
+            </div>
+          }
+
+          <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+            <div class="mb-3">
+              <label class="form-label fw-semibold" for="auth-email">E-mail</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                <input
+                  id="auth-email"
+                  class="form-control"
+                  type="email"
+                  formControlName="email"
+                  autocomplete="email"
+                  placeholder="voce@exemplo.com"
+                  [class.is-invalid]="form.controls.email.invalid && form.controls.email.touched"
+                />
+              </div>
+              @if (form.controls.email.invalid && form.controls.email.touched) {
+                <div class="invalid-feedback d-block">Informe um e-mail válido.</div>
+              }
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label fw-semibold" for="auth-password">Senha</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                <input
+                  id="auth-password"
+                  class="form-control"
+                  type="password"
+                  formControlName="password"
+                  autocomplete="current-password"
+                  placeholder="Mínimo de 6 caracteres"
+                  [class.is-invalid]="form.controls.password.invalid && form.controls.password.touched"
+                />
+              </div>
+              @if (form.controls.password.invalid && form.controls.password.touched) {
+                <div class="invalid-feedback d-block">A senha deve possuir pelo menos 6 caracteres.</div>
+              }
+            </div>
+
+            <button class="btn btn-primary btn-lg w-100" type="submit" [disabled]="submitting()">
+              @if (submitting()) {
+                <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+              } @else {
+                <i class="bi me-2" [class.bi-box-arrow-in-right]="mode() === 'signin'" [class.bi-person-plus]="mode() === 'signup'"></i>
+              }
+              {{ mode() === 'signin' ? 'Entrar' : 'Criar conta' }}
+            </button>
+          </form>
+
+          <div class="text-center border-top pt-4 mt-4">
+            <span class="text-secondary">
+              {{ mode() === 'signin' ? 'Ainda não possui acesso?' : 'Já possui uma conta?' }}
+            </span>
+            <button class="btn btn-link fw-semibold px-1" type="button" (click)="toggleMode()">
+              {{ mode() === 'signin' ? 'Criar conta' : 'Entrar' }}
+            </button>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+</main>

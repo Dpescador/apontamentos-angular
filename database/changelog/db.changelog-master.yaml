@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - include:
+      file: changes/001-create-apontamentos.sql
+      relativeToChangelogFile: true
+  - include:
+      file: changes/002-create-updated-at-trigger.sql
+      relativeToChangelogFile: true
+  - include:
+      file: changes/003-configure-row-level-security.sql
+      relativeToChangelogFile: true

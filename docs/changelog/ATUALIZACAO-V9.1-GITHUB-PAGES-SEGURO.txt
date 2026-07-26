@@ -1,0 +1,15 @@
+VERSÃO 9.1 — GITHUB PAGES + SUPABASE SEGURO
+
+- Projeto configurado para usar somente Project URL e Publishable key no Angular.
+- public/app-config.js preparado para testes locais.
+- GitHub Actions utiliza SUPABASE_URL e SUPABASE_PUBLISHABLE_KEY.
+- Workflow usa a configuração pública versionada como fallback.
+- Verificação automática impede publicação quando encontra padrão de chave administrativa.
+- @types/node adicionado para corrigir declarações NodeJS e Buffer do cliente Supabase.
+- tsconfig.app.json atualizado com types: ["node"].
+- skipLibCheck habilitado como proteção adicional para declarações de dependências.
+- database/liquibase.properties e database/liquibase.properties.example ignorados.
+- Modelo seguro renomeado para database/liquibase.properties.template.
+- Script configurar-liquibase.bat criado.
+- Scripts Liquibase atualizados para validar a configuração local.
+- PREPARAR_COMMIT_SEGURO.ps1 criado para retirar arquivos locais do índice e verificar credenciais.
