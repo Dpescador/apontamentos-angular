@@ -33,7 +33,7 @@ export class ActivityRepositoryService {
       if (this.loadedUserId !== user.id) {
         this.loadedUserId = user.id;
         void this.refresh().catch((error: unknown) => {
-          console.error('Falha ao carregar os apontamentos do Supabase.', error);
+          console.error('Falha ao carregar os apontamentos do banco de dados.', error);
         });
       }
     });
@@ -49,7 +49,7 @@ export class ActivityRepositoryService {
     }
 
     this.loading.set(true);
-    this.status.set('Carregando apontamentos do Supabase...');
+    this.status.set('Carregando apontamentos do banco de dados...');
 
     try {
       const activities = await this.api.findAll();
@@ -57,12 +57,12 @@ export class ActivityRepositoryService {
       this.connected.set(true);
       this.status.set(
         activities.length
-          ? `${activities.length} apontamento(s) carregado(s) do Supabase.`
+          ? `${activities.length} apontamento(s) carregado(s) do banco de dados.`
           : 'Banco conectado. Nenhum apontamento cadastrado.'
       );
     } catch (error: unknown) {
       this.connected.set(false);
-      this.status.set('Não foi possível carregar os dados do Supabase.');
+      this.status.set('Não foi possível carregar os dados do banco de dados.');
       throw error;
     } finally {
       this.loading.set(false);
@@ -84,10 +84,10 @@ export class ActivityRepositoryService {
           : [...current, saved]
       );
       this.connected.set(true);
-      this.status.set('Alterações gravadas no Supabase.');
+      this.status.set('Alterações gravadas no banco de dados.');
     } catch (error: unknown) {
       this.connected.set(false);
-      this.status.set('Falha ao gravar o apontamento no Supabase.');
+      this.status.set('Falha ao gravar o apontamento no banco de dados.');
       throw error;
     } finally {
       this.loading.set(false);
@@ -103,10 +103,10 @@ export class ActivityRepositoryService {
         current.filter((activity) => activity.id !== id)
       );
       this.connected.set(true);
-      this.status.set('Apontamento excluído do Supabase.');
+      this.status.set('Apontamento excluído do banco de dados.');
     } catch (error: unknown) {
       this.connected.set(false);
-      this.status.set('Falha ao excluir o apontamento no Supabase.');
+      this.status.set('Falha ao excluir o apontamento no banco de dados.');
       throw error;
     } finally {
       this.loading.set(false);
@@ -120,11 +120,11 @@ export class ActivityRepositoryService {
       const imported = await this.activityFile.readFile(file);
       await this.api.upsertMany(imported);
       await this.refresh();
-      this.status.set(`${imported.length} registro(s) importado(s) para o Supabase.`);
+      this.status.set(`${imported.length} registro(s) importado(s) para o banco de dados.`);
       return imported.length;
     } catch (error: unknown) {
       this.connected.set(false);
-      this.status.set('Falha ao importar o backup para o Supabase.');
+      this.status.set('Falha ao importar o backup para o banco de dados.');
       throw error;
     } finally {
       this.loading.set(false);
