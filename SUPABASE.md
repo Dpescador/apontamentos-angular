@@ -89,8 +89,8 @@ Authentication → Providers → Email
 Em **Authentication → URL Configuration**, cadastre:
 
 ```text
-http://localhost:4200/**
 https://dpescador.github.io/apontamentos-angular/**
+http://localhost:4200/**
 ```
 
 Ajuste a segunda URL caso o nome do repositório seja diferente.
