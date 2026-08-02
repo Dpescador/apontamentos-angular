@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { AppNavigationService } from '../../../../core/services/app-navigation.service';
 import { AuthService } from '../../../../core/services/auth.service';
 import { ModalService } from '../../../../core/services/modal.service';
 import { AppHeaderComponent } from '../../../../layout/app-header/app-header.component';
@@ -31,6 +32,7 @@ import { ActivityDashboardFacade } from '../../services/activity-dashboard.facad
 export class ActivityDashboardComponent {
   readonly facade = inject(ActivityDashboardFacade);
   readonly auth = inject(AuthService);
+  readonly navigation = inject(AppNavigationService);
   private readonly modal = inject(ModalService);
 
   edit(activity: Activity): void {

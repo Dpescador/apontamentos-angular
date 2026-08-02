@@ -8,3 +8,9 @@ databaseChangeLog:
   - include:
       file: changes/003-configure-row-level-security.sql
       relativeToChangelogFile: true
+  - include:
+      file: changes/004-create-user-profiles-and-admin-role.sql
+      relativeToChangelogFile: true
+  - include:
+      file: changes/005-configure-admin-security-and-user-list.sql
+      relativeToChangelogFile: true

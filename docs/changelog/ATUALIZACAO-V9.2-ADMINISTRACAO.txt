@@ -1,0 +1,11 @@
+VERSÃO 9.2 — ADMINISTRAÇÃO DE USUÁRIOS
+
+- Adicionada tabela public.profiles.
+- Adicionadas funções USER e ADMIN.
+- Adicionado trigger para sincronizar usuários do Supabase Auth.
+- Adicionada verificação segura de administrador no PostgreSQL.
+- Adicionada função admin_list_users para listar usuários e totais.
+- Adicionada página responsiva de administração.
+- Adicionado botão Administração somente para administradores.
+- Adicionado script PROMOVER_ADMIN.sql para habilitar o primeiro administrador.
+- Nenhuma Secret Key é utilizada no frontend.

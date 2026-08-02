@@ -1,8 +1,7 @@
 ﻿$ErrorActionPreference = "Stop"
 
 $projectRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
-# $appUrl = "http://localhost:4200"
-$appUrl = "https://dpescador.github.io/apontamentos-angular/"
+$appUrl = "http://localhost:4200"
 $cliPath = Join-Path $projectRoot "node_modules\@angular\cli\bin\ng.js"
 $buildPackage = Join-Path $projectRoot "node_modules\@angular\build\package.json"
 $pidFile = Join-Path $projectRoot ".apontamentos-server.pid"

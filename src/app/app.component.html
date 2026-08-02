@@ -8,7 +8,11 @@
     </div>
   </main>
 } @else if (auth.user()) {
-  <app-activity-dashboard-page />
+  @if (navigation.page() === 'admin-users' && auth.isAdmin()) {
+    <app-admin-users-page />
+  } @else {
+    <app-activity-dashboard-page />
+  }
 } @else {
   <app-login-page />
 }

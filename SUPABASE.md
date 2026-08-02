@@ -1,6 +1,6 @@
 # Configuração do Supabase
 
-A versão 9.1 utiliza o **Supabase/PostgreSQL** como fonte oficial dos apontamentos. TXT e JSON permanecem somente para backup e migração.
+A versão 9.2 utiliza o **Supabase/PostgreSQL** como fonte oficial dos apontamentos. TXT e JSON permanecem somente para backup e migração.
 
 ## 1. Banco de dados com Liquibase
 
@@ -10,7 +10,10 @@ Os changelogs criam:
 - índices por usuário, data e Sprint;
 - validação de horas;
 - gatilho para `atualizado_em`;
-- permissões e políticas Row Level Security.
+- permissões e políticas Row Level Security;
+- tabela `public.profiles` com funções `USER` e `ADMIN`;
+- sincronização automática entre `auth.users` e `public.profiles`;
+- função segura para o administrador listar usuários e totais.
 
 Execute:
 
@@ -67,7 +70,7 @@ Execute uma vez:
 npm install --include=dev
 ```
 
-A versão 9.1 inclui `@types/node`, necessário para as declarações TypeScript usadas pelo cliente Supabase.
+A versão 9.2 inclui `@types/node`, necessário para as declarações TypeScript usadas pelo cliente Supabase.
 
 Depois execute:
 
@@ -176,3 +179,15 @@ Confira se:
 ### Liquibase não conecta
 
 Use o **Session pooler** na porta `5432` quando a conexão direta IPv6 não estiver disponível.
+
+## 9. Habilitar o administrador
+
+Depois de aplicar os changelogs e criar sua conta pela aplicação:
+
+1. Abra o arquivo `database/scripts/PROMOVER_ADMIN.sql`.
+2. Troque `SEU_EMAIL@EXEMPLO.COM` pelo e-mail da sua conta.
+3. Execute o comando no **SQL Editor** do Supabase.
+4. Saia e entre novamente na aplicação.
+5. Clique em **Administração** no cabeçalho.
+
+A área administrativa exibe todos os usuários cadastrados, função, data de criação, último acesso, quantidade de apontamentos e total de horas. Nenhuma Secret Key é enviada ao GitHub Pages. A autorização é verificada dentro do PostgreSQL.

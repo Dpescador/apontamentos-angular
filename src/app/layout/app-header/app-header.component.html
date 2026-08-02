@@ -16,7 +16,20 @@
       </div>
     </div>
 
-    <div class="header-actions row g-2 justify-content-xl-end" aria-label="Ações do banco e backup">
+    <div class="header-actions row g-2 justify-content-xl-end" aria-label="Ações do banco, administração e backup">
+      @if (isAdmin) {
+        <div class="col-12 col-sm-auto">
+          <button
+            class="btn btn-dark w-100 d-inline-flex align-items-center justify-content-center gap-2"
+            type="button"
+            [disabled]="loading"
+            (click)="openAdmin.emit()"
+          >
+            <i class="bi bi-shield-lock" aria-hidden="true"></i>
+            <span>Administração</span>
+          </button>
+        </div>
+      }
       <div class="col-6 col-sm-auto">
         <button
           class="btn btn-primary w-100 d-inline-flex align-items-center justify-content-center gap-2"

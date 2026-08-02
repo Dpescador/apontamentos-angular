@@ -49,7 +49,7 @@ export class LoginComponent {
         const result = await this.auth.signUp(email, password);
         if (result.confirmationRequired) {
           this.message.set(
-            'Cadastro realizado. Abra o e-mail enviado pela aplicação para confirmar sua conta.'
+            'Cadastro realizado. Abra o e-mail enviado pelo Supabase para confirmar sua conta.'
           );
         }
       }

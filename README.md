@@ -12,6 +12,8 @@ Aplicação web responsiva para registrar atividades e acompanhar horas por dia,
 
 ## Funcionalidades
 
+- Área administrativa protegida para listar usuários, funções, último acesso, quantidade de apontamentos e total de horas.
+
 - Autenticação por e-mail e senha.
 - Dados separados por usuário com PostgreSQL RLS.
 - Inclusão, edição e exclusão no Supabase.
@@ -59,8 +61,10 @@ src/app/
 │   ├── models/
 │   │   ├── app-config.model.ts
 │   │   ├── database.types.ts
-│   │   └── modal.model.ts
+│   │   ├── modal.model.ts
+│   │   └── user-profile.model.ts
 │   └── services/
+│       ├── app-navigation.service.ts
 │       ├── auth.service.ts
 │       ├── file-system.service.ts
 │       ├── modal.service.ts
@@ -72,6 +76,10 @@ src/app/
 │   │   └── bar-chart/
 │   └── utils/
 ├── features/
+│   ├── admin/
+│   │   ├── models/
+│   │   ├── pages/admin-users/
+│   │   └── services/
 │   ├── auth/
 │   │   └── pages/login/
 │   └── activities/
@@ -114,3 +122,13 @@ Use somente a **Publishable key** no Angular. Credenciais administrativas e a se
 O workflow usa `SUPABASE_URL` e `SUPABASE_PUBLISHABLE_KEY` configuradas em **Repository Variables**. Quando elas não estiverem cadastradas, o workflow usa a configuração pública de `public/app-config.js`.
 
 O arquivo `database/liquibase.properties.example` é ignorado. O modelo seguro utilizado pelo projeto é `database/liquibase.properties.template`.
+
+## Criar o primeiro administrador
+
+1. Crie uma conta normalmente pela aplicação.
+2. Execute `database/scripts/liquibase-update.bat`.
+3. Abra `database/scripts/PROMOVER_ADMIN.sql`, substitua o e-mail e execute o comando no SQL Editor do Supabase.
+4. Saia e entre novamente na aplicação.
+5. O botão **Administração** aparecerá no cabeçalho.
+
+A tela administrativa usa uma função PostgreSQL `SECURITY DEFINER` que valida o papel `ADMIN` no banco antes de retornar os usuários. A aplicação continua usando somente a Publishable key.

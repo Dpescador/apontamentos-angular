@@ -1,0 +1,220 @@
+<div class="container-fluid admin-container px-2 px-sm-3 px-md-4 px-xl-5 py-3 py-md-4 py-xl-5">
+  <header class="mb-3 mb-md-4">
+    <div class="d-flex flex-column flex-lg-row align-items-lg-start justify-content-between gap-3">
+      <div class="d-flex align-items-start gap-2 gap-sm-3 min-w-0">
+        <span class="icon-circle bg-primary-subtle text-primary fs-4 mt-1" aria-hidden="true">
+          <i class="bi bi-shield-lock"></i>
+        </span>
+        <div class="min-w-0">
+          <p class="text-primary fw-bold text-uppercase small letter-spacing mb-1">Administração</p>
+          <h1 class="admin-title fw-bold mb-1">Usuários cadastrados</h1>
+          <p class="text-secondary mb-1">
+            Consulte as contas criadas, último acesso e o volume de apontamentos de cada usuário.
+          </p>
+          <p class="small text-secondary mb-0 text-break">
+            <i class="bi bi-person-badge me-1" aria-hidden="true"></i>
+            {{ auth.user()?.email ?? '' }}
+            <span class="badge text-bg-primary ms-1">ADMIN</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column flex-sm-row gap-2 admin-actions">
+        <button
+          class="btn btn-outline-secondary d-inline-flex align-items-center justify-content-center gap-2"
+          type="button"
+          (click)="navigation.openDashboard()"
+        >
+          <i class="bi bi-arrow-left" aria-hidden="true"></i>
+          <span>Voltar aos apontamentos</span>
+        </button>
+        <button
+          class="btn btn-primary d-inline-flex align-items-center justify-content-center gap-2"
+          type="button"
+          [disabled]="loading()"
+          (click)="loadUsers()"
+        >
+          <i
+            class="bi"
+            [class.bi-arrow-repeat]="!loading()"
+            [class.bi-hourglass-split]="loading()"
+            aria-hidden="true"
+          ></i>
+          <span>Atualizar</span>
+        </button>
+        <button
+          class="btn btn-outline-danger d-inline-flex align-items-center justify-content-center gap-2"
+          type="button"
+          [disabled]="loading()"
+          (click)="logout()"
+        >
+          <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+          <span>Sair</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="d-grid gap-3 gap-xl-4">
+    <section class="row g-2 g-md-3" aria-label="Resumo administrativo">
+      <div class="col-6 col-lg-3">
+        <article class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <p class="text-secondary small mb-1">Usuários</p>
+            <p class="summary-value mb-0">{{ users().length }}</p>
+          </div>
+        </article>
+      </div>
+      <div class="col-6 col-lg-3">
+        <article class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <p class="text-secondary small mb-1">Administradores</p>
+            <p class="summary-value mb-0">{{ adminCount() }}</p>
+          </div>
+        </article>
+      </div>
+      <div class="col-6 col-lg-3">
+        <article class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <p class="text-secondary small mb-1">Apontamentos</p>
+            <p class="summary-value mb-0">{{ totalActivities() }}</p>
+          </div>
+        </article>
+      </div>
+      <div class="col-6 col-lg-3">
+        <article class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <p class="text-secondary small mb-1">Total de horas</p>
+            <p class="summary-value mb-0">{{ formatHours(totalHours()) }}h</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="card border-0 shadow-sm">
+      <div class="card-body p-2 p-sm-3 p-lg-4">
+        <div class="d-flex flex-column flex-md-row align-items-md-end justify-content-between gap-2 gap-md-3 mb-3">
+          <div>
+            <h2 class="h5 mb-1">Lista de usuários</h2>
+            <p class="small text-secondary mb-0">
+              Exibindo {{ filteredUsers().length }} de {{ users().length }} usuário(s).
+            </p>
+          </div>
+
+          <div class="search-box">
+            <label class="form-label small fw-semibold mb-1" for="admin-user-search">Pesquisar</label>
+            <div class="input-group">
+              <span class="input-group-text" aria-hidden="true">
+                <i class="bi bi-search"></i>
+              </span>
+              <input
+                id="admin-user-search"
+                class="form-control"
+                type="search"
+                placeholder="E-mail, função ou ID"
+                [value]="searchTerm()"
+                (input)="changeSearch($event)"
+              />
+            </div>
+          </div>
+        </div>
+
+        @if (errorMessage()) {
+          <div class="alert alert-danger mb-0" role="alert">
+            <div class="d-flex align-items-start gap-2">
+              <i class="bi bi-exclamation-triangle mt-1" aria-hidden="true"></i>
+              <div>
+                <strong>Não foi possível carregar os usuários.</strong>
+                <div class="small mt-1">{{ errorMessage() }}</div>
+              </div>
+            </div>
+          </div>
+        } @else if (loading()) {
+          <div class="text-center py-5" aria-live="polite">
+            <div class="spinner-border text-primary mb-3" role="status">
+              <span class="visually-hidden">Carregando usuários...</span>
+            </div>
+            <p class="text-secondary mb-0">Carregando usuários do Supabase...</p>
+          </div>
+        } @else if (!filteredUsers().length) {
+          <div class="text-center py-5">
+            <i class="bi bi-people fs-1 text-secondary" aria-hidden="true"></i>
+            <p class="text-secondary mt-2 mb-0">Nenhum usuário encontrado.</p>
+          </div>
+        } @else {
+          <div class="table-responsive d-none d-lg-block">
+            <table class="table table-hover align-middle mb-0">
+              <thead>
+                <tr>
+                  <th scope="col">Usuário</th>
+                  <th scope="col">Função</th>
+                  <th scope="col">Criado em</th>
+                  <th scope="col">Último acesso</th>
+                  <th class="text-end" scope="col">Apontamentos</th>
+                  <th class="text-end" scope="col">Horas</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (user of filteredUsers(); track user.id) {
+                  <tr>
+                    <td>
+                      <div class="fw-semibold text-break">{{ user.email }}</div>
+                      <div class="small text-secondary user-id text-break">{{ user.id }}</div>
+                    </td>
+                    <td>
+                      <span
+                        class="badge"
+                        [class.text-bg-primary]="user.role === 'ADMIN'"
+                        [class.text-bg-secondary]="user.role === 'USER'"
+                      >
+                        {{ user.role }}
+                      </span>
+                    </td>
+                    <td>{{ formatDate(user.createdAt) }}</td>
+                    <td>{{ formatDate(user.lastSignInAt) }}</td>
+                    <td class="text-end fw-semibold">{{ user.activityCount }}</td>
+                    <td class="text-end fw-semibold">{{ formatHours(user.totalHours) }}h</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+
+          <div class="d-grid gap-2 d-lg-none">
+            @for (user of filteredUsers(); track user.id) {
+              <article class="user-card border rounded-3 p-3">
+                <div class="d-flex align-items-start justify-content-between gap-2 mb-3">
+                  <div class="min-w-0">
+                    <div class="fw-semibold text-break">{{ user.email }}</div>
+                    <div class="small text-secondary user-id text-break">{{ user.id }}</div>
+                  </div>
+                  <span
+                    class="badge flex-shrink-0"
+                    [class.text-bg-primary]="user.role === 'ADMIN'"
+                    [class.text-bg-secondary]="user.role === 'USER'"
+                  >
+                    {{ user.role }}
+                  </span>
+                </div>
+
+                <dl class="row g-2 mb-0 small">
+                  <dt class="col-5 text-secondary fw-normal">Criado em</dt>
+                  <dd class="col-7 text-end mb-0">{{ formatDate(user.createdAt) }}</dd>
+
+                  <dt class="col-5 text-secondary fw-normal">Último acesso</dt>
+                  <dd class="col-7 text-end mb-0">{{ formatDate(user.lastSignInAt) }}</dd>
+
+                  <dt class="col-5 text-secondary fw-normal">Apontamentos</dt>
+                  <dd class="col-7 text-end fw-semibold mb-0">{{ user.activityCount }}</dd>
+
+                  <dt class="col-5 text-secondary fw-normal">Horas</dt>
+                  <dd class="col-7 text-end fw-semibold mb-0">{{ formatHours(user.totalHours) }}h</dd>
+                </dl>
+              </article>
+            }
+          </div>
+        }
+      </div>
+    </section>
+  </main>
+</div>

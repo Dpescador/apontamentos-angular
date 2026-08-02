@@ -15,4 +15,3 @@ database/liquibase.properties.example
 .env
 .env.*
 !.env.example
-database/*.properties

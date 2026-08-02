@@ -2,7 +2,7 @@ DASHBOARD DE APONTAMENTOS - CONFIGURAÇÃO INICIAL
 
 1. Crie e configure o projeto Supabase conforme SUPABASE.md.
 2. Execute os scripts do banco com database\scripts\liquibase-update.bat.
-3. Confira public\app-config.js. A versão 9.1 já está configurada com a Project URL e a Publishable key.
+3. Confira public\app-config.js. A versão 9.2 já está configurada com a Project URL e a Publishable key.
 4. Dê dois cliques em INICIAR_APLICACAO.bat.
 5. Crie sua conta ou entre com um usuário existente.
 6. Para migrar os dados antigos, use o botão Importar backup.
@@ -14,3 +14,8 @@ IMPORTANTE:
 - Use somente a Project URL e a Publishable key no Angular.
 - O banco Supabase é a fonte oficial; TXT/JSON é apenas backup.
 - Consulte HELP.md para uso e SUPABASE.md para configuração.
+
+ADMINISTRAÇÃO:
+- Execute os novos changelogs 004 e 005.
+- Crie sua conta e use database\scripts\PROMOVER_ADMIN.sql para atribuir a função ADMIN.
+- Saia e entre novamente; o botão Administração aparecerá no cabeçalho.

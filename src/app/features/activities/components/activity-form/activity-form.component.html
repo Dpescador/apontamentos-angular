@@ -82,9 +82,9 @@
             class="form-control"
             type="number"
             formControlName="hours"
-            min="0.5"
+            min="0.1"
             max="24"
-            step="0.5"
+            step="0.25"
             [class.is-invalid]="form.get('hours')?.invalid && form.get('hours')?.touched"
           />
         </div>

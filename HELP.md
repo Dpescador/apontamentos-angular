@@ -210,3 +210,34 @@ O usuário atual pode não possuir registros. Importe o backup antigo depois de 
 ### Erro do Liquibase
 
 Consulte [`database/README.md`](database/README.md). Em redes sem IPv6, utilize o **Session pooler** do Supabase na porta `5432`.
+
+---
+
+## Administração de usuários
+
+A área administrativa aparece somente para contas com a função `ADMIN`.
+
+### Habilitar o primeiro administrador
+
+1. Execute os changelogs mais recentes com `database/scripts/liquibase-update.bat`.
+2. Crie uma conta normalmente pela tela de cadastro.
+3. Abra `database/scripts/PROMOVER_ADMIN.sql`.
+4. Substitua `SEU_EMAIL@EXEMPLO.COM` pelo e-mail cadastrado.
+5. Execute o comando no **SQL Editor** do Supabase.
+6. Saia e entre novamente na aplicação.
+
+### Abrir a lista de usuários
+
+1. Entre com a conta administradora.
+2. Clique em **Administração** no cabeçalho.
+3. A tela exibirá:
+   - e-mail e identificador do usuário;
+   - função `USER` ou `ADMIN`;
+   - data de criação;
+   - último acesso;
+   - quantidade de apontamentos;
+   - total de horas.
+4. Use a pesquisa para localizar por e-mail, função ou UUID.
+5. Clique em **Voltar aos apontamentos** para retornar ao dashboard.
+
+A área administrativa não utiliza Secret Key no navegador. A autorização é validada no PostgreSQL antes da listagem ser retornada.

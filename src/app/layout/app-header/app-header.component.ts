@@ -12,8 +12,10 @@ export class AppHeaderComponent {
   @Input() connected = false;
   @Input() loading = false;
   @Input() userEmail = '';
+  @Input() isAdmin = false;
 
   @Output() refreshDatabase = new EventEmitter<void>();
+  @Output() openAdmin = new EventEmitter<void>();
   @Output() importBackup = new EventEmitter<File>();
   @Output() exportBackup = new EventEmitter<void>();
   @Output() logout = new EventEmitter<void>();

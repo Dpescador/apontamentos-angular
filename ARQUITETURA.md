@@ -88,3 +88,22 @@ A aplicação usa autenticação do Supabase. A tabela possui `usuario_id` e pol
 ## Migrações
 
 As alterações de esquema são versionadas com Liquibase em `database/changelog`. Cada changeset possui rollback e é registrado nas tabelas `databasechangelog` e `databasechangeloglock` do PostgreSQL.
+
+## Módulo administrativo — versão 9.2
+
+```text
+src/app/features/admin/
+├── models/
+│   └── admin-user.model.ts
+├── pages/
+│   └── admin-users/
+│       ├── admin-users.component.ts
+│       ├── admin-users.component.html
+│       └── admin-users.component.css
+└── services/
+    └── admin-api.service.ts
+```
+
+O `AuthService` carrega o perfil público do usuário e disponibiliza `isAdmin`. O `AppNavigationService` alterna entre o dashboard e a área administrativa sem exigir rota de servidor no GitHub Pages.
+
+A interface apenas controla a exibição. A autorização real é aplicada no PostgreSQL por `private.is_admin()` e `public.admin_list_users()`.

@@ -1,6 +1,4 @@
 export const TASK_OPTIONS = [
   'Análise',
-  'Ausência',
-  'Cerimônias e Reuniões',
-  'Outros'
+  'Cerimônias e Reuniões'
 ] as const;
