@@ -104,13 +104,13 @@ Os changelogs Liquibase ficam em:
 ```text
 database/changelog/
 ├── db.changelog-master.yaml
-└── changes/
-    ├── 001-create-apontamentos.sql
-    ├── 002-create-updated-at-trigger.sql
-    └── 003-configure-row-level-security.sql
+├── changes/
+│   └── 010-consolidate-supabase-schema.sql
+└── legacy/
+    └── db.changelog-legacy.yaml
 ```
 
-O banco é a fonte oficial dos dados. Os arquivos TXT/JSON são apenas cópias de segurança ou meios de migração.
+O changelog consolidado é idempotente e também corrige estruturas criadas parcialmente pelo SQL Editor. O banco é a fonte oficial dos dados. Os arquivos TXT/JSON são apenas cópias de segurança ou meios de migração.
 
 ## Segurança
 

@@ -1,0 +1,17 @@
+VERSÃO 9.3 - LIQUIBASE CONSOLIDADO
+
+- Criado changelog idempotente 010-consolidate-supabase-schema.sql.
+- O changelog funciona em banco novo e em banco parcialmente criado manualmente.
+- Mantidos os changesets 001 a 005 apenas como histórico.
+- Corrigidos nomes criado_em e atualizado_em em public.profiles.
+- Criado enum USER/ADMIN e conversão segura da coluna role.
+- Criada sincronização automática entre auth.users e public.profiles.
+- Corrigidas políticas RLS para evitar recursão e permitir a RPC administrativa.
+- Removido FORCE RLS das tabelas usadas pela função SECURITY DEFINER.
+- Criada/atualizada private.is_admin().
+- Criada/atualizada public.admin_list_users().
+- Adicionada recarga automática do schema do PostgREST.
+- Atualizado PROMOVER_ADMIN.sql com UPSERT seguro.
+- Adicionado VALIDAR_ADMINISTRACAO.sql.
+- Adicionado RECARREGAR_POSTGREST.sql.
+- Adicionado liquibase-update-sql.bat para visualizar o SQL antes da execução.

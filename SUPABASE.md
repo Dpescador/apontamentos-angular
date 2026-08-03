@@ -1,10 +1,10 @@
 # Configuração do Supabase
 
-A versão 9.2 utiliza o **Supabase/PostgreSQL** como fonte oficial dos apontamentos. TXT e JSON permanecem somente para backup e migração.
+A versão 9.3 utiliza o **Supabase/PostgreSQL** como fonte oficial dos apontamentos. TXT e JSON permanecem somente para backup e migração.
 
 ## 1. Banco de dados com Liquibase
 
-Os changelogs criam:
+O changelog consolidado `010-consolidate-supabase-schema.sql` cria ou reconcilia:
 
 - tabela `public.apontamentos`;
 - índices por usuário, data e Sprint;
@@ -33,6 +33,12 @@ Exemplo:
 url=jdbc:postgresql://SEU_HOST:5432/postgres?sslmode=require
 username=postgres.SEU_PROJECT_REF
 password=SUA_SENHA_DO_POSTGRES
+```
+
+Visualize primeiro o SQL opcionalmente:
+
+```text
+database/scripts/liquibase-update-sql.bat
 ```
 
 Aplique os scripts:
@@ -70,7 +76,7 @@ Execute uma vez:
 npm install --include=dev
 ```
 
-A versão 9.2 inclui `@types/node`, necessário para as declarações TypeScript usadas pelo cliente Supabase.
+A versão 9.3 inclui `@types/node`, necessário para as declarações TypeScript usadas pelo cliente Supabase.
 
 Depois execute:
 
@@ -89,8 +95,8 @@ Authentication → Providers → Email
 Em **Authentication → URL Configuration**, cadastre:
 
 ```text
-https://dpescador.github.io/apontamentos-angular/**
 http://localhost:4200/**
+https://dpescador.github.io/apontamentos-angular/**
 ```
 
 Ajuste a segunda URL caso o nome do repositório seja diferente.
@@ -190,4 +196,4 @@ Depois de aplicar os changelogs e criar sua conta pela aplicação:
 4. Saia e entre novamente na aplicação.
 5. Clique em **Administração** no cabeçalho.
 
-A área administrativa exibe todos os usuários cadastrados, função, data de criação, último acesso, quantidade de apontamentos e total de horas. Nenhuma Secret Key é enviada ao GitHub Pages. A autorização é verificada dentro do PostgreSQL.
+A área administrativa exibe todos os usuários cadastrados, função, data de criação, último acesso, quantidade de apontamentos e total de horas. Para validar funções, políticas e triggers, execute `database/scripts/VALIDAR_ADMINISTRACAO.sql` no SQL Editor. Nenhuma Secret Key é enviada ao GitHub Pages. A autorização é verificada dentro do PostgreSQL.
