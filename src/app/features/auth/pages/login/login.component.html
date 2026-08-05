@@ -61,13 +61,48 @@
 
           @if (message()) {
             <div class="alert alert-success" role="status">
-              <i class="bi bi-check-circle-fill me-2" aria-hidden="true"></i>{{ message() }}
+              <div class="d-flex gap-2 align-items-start">
+                <i class="bi bi-check-circle-fill mt-1" aria-hidden="true"></i>
+                <div>
+                  <div>{{ message() }}</div>
+                  @if (pendingConfirmationEmail()) {
+                    <div class="small mt-2">
+                      Após a confirmação, você será redirecionado para
+                      <a
+                        class="alert-link text-break"
+                        [href]="auth.confirmationRedirectUrl"
+                      >{{ auth.confirmationRedirectUrl }}</a>.
+                    </div>
+                  }
+                </div>
+              </div>
             </div>
           }
 
           @if (errorMessage()) {
             <div class="alert alert-danger" role="alert">
               <i class="bi bi-exclamation-triangle-fill me-2" aria-hidden="true"></i>{{ errorMessage() }}
+            </div>
+          }
+
+          @if (pendingConfirmationEmail()) {
+            <div class="alert alert-info d-flex flex-column flex-sm-row gap-3 align-items-sm-center justify-content-between" role="status">
+              <div class="small">
+                Não recebeu a mensagem em <strong>{{ pendingConfirmationEmail() }}</strong>?
+              </div>
+              <button
+                class="btn btn-outline-primary btn-sm flex-shrink-0"
+                type="button"
+                [disabled]="resendingConfirmation()"
+                (click)="resendConfirmation()"
+              >
+                @if (resendingConfirmation()) {
+                  <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+                } @else {
+                  <i class="bi bi-envelope-arrow-up me-2" aria-hidden="true"></i>
+                }
+                Reenviar confirmação
+              </button>
             </div>
           }
 

@@ -25,6 +25,7 @@ export class AuthService {
   readonly loading = signal(true);
   readonly profileLoading = signal(false);
   readonly configured = this.supabase.isConfigured;
+  readonly confirmationRedirectUrl = this.supabase.authRedirectUrl;
   readonly isAdmin = computed(() => this.profileState()?.role === 'ADMIN');
   readonly initialized: Promise<void>;
 
@@ -51,7 +52,7 @@ export class AuthService {
       email: email.trim(),
       password,
       options: {
-        emailRedirectTo: window.location.origin + window.location.pathname
+        emailRedirectTo: this.confirmationRedirectUrl
       }
     });
 
@@ -65,6 +66,20 @@ export class AuthService {
     }
 
     return { confirmationRequired: data.session === null };
+  }
+
+  async resendSignupConfirmation(email: string): Promise<void> {
+    const { error } = await this.supabase.client.auth.resend({
+      type: 'signup',
+      email: email.trim(),
+      options: {
+        emailRedirectTo: this.confirmationRedirectUrl
+      }
+    });
+
+    if (error) {
+      throw new Error(this.translateAuthError(error.message));
+    }
   }
 
   async signOut(): Promise<void> {

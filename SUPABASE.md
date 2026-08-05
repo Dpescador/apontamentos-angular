@@ -1,6 +1,6 @@
 # Configuração do Supabase
 
-A versão 9.3 utiliza o **Supabase/PostgreSQL** como fonte oficial dos apontamentos. TXT e JSON permanecem somente para backup e migração.
+A versão 9.4 utiliza o **Supabase/PostgreSQL** como fonte oficial dos apontamentos. TXT e JSON permanecem somente para backup e migração.
 
 ## 1. Banco de dados com Liquibase
 
@@ -76,7 +76,7 @@ Execute uma vez:
 npm install --include=dev
 ```
 
-A versão 9.3 inclui `@types/node`, necessário para as declarações TypeScript usadas pelo cliente Supabase.
+A partir da versão 9.3, o projeto inclui `@types/node`, necessário para as declarações TypeScript usadas pelo cliente Supabase.
 
 Depois execute:
 
@@ -92,14 +92,33 @@ No Supabase, mantenha o provedor de e-mail ativado:
 Authentication → Providers → Email
 ```
 
-Em **Authentication → URL Configuration**, cadastre:
+Em **Authentication → URL Configuration**, configure:
+
+**Site URL**
 
 ```text
+https://dpescador.github.io/apontamentos-angular/
+```
+
+**Redirect URLs**
+
+```text
+http://localhost:4200/
 http://localhost:4200/**
+https://dpescador.github.io/apontamentos-angular/
 https://dpescador.github.io/apontamentos-angular/**
 ```
 
-Ajuste a segunda URL caso o nome do repositório seja diferente.
+O cadastro e o reenvio da confirmação utilizam automaticamente:
+
+```text
+Produção: https://dpescador.github.io/apontamentos-angular/
+Local:    http://localhost:4200/
+```
+
+Esses endereços ficam centralizados em `public/app-config.js`, nas propriedades
+`authRedirectUrl` e `localAuthRedirectUrl`. O template de confirmação do Supabase
+deve continuar utilizando `{{ .ConfirmationURL }}`.
 
 ## 5. GitHub Pages
 

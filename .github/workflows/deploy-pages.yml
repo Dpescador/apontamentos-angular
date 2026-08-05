@@ -60,7 +60,9 @@ jobs:
           const fs = require('node:fs');
           const config = {
             supabaseUrl: process.env.SUPABASE_URL,
-            supabasePublishableKey: process.env.SUPABASE_PUBLISHABLE_KEY
+            supabasePublishableKey: process.env.SUPABASE_PUBLISHABLE_KEY,
+            authRedirectUrl: 'https://dpescador.github.io/apontamentos-angular/',
+            localAuthRedirectUrl: 'http://localhost:4200/'
           };
           fs.writeFileSync(
             'public/app-config.js',
