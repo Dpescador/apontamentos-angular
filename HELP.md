@@ -241,23 +241,3 @@ A área administrativa aparece somente para contas com a função `ADMIN`.
 5. Clique em **Voltar aos apontamentos** para retornar ao dashboard.
 
 A área administrativa não utiliza Secret Key no navegador. A autorização é validada no PostgreSQL antes da listagem ser retornada.
-
-
-## Confirmação de e-mail
-
-Ao criar uma conta, o Supabase envia uma mensagem de confirmação. Depois de
-clicar no link, o usuário é direcionado para:
-
-```text
-https://dpescador.github.io/apontamentos-angular/
-```
-
-Durante o desenvolvimento local, o retorno utiliza:
-
-```text
-http://localhost:4200/
-```
-
-Caso a mensagem não chegue, use o botão **Reenviar confirmação** exibido na tela
-de acesso. Links enviados antes de uma alteração de configuração podem manter o
-endereço anterior; nesse caso, reenvie a confirmação.

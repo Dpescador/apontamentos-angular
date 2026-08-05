@@ -123,20 +123,6 @@ O workflow usa `SUPABASE_URL` e `SUPABASE_PUBLISHABLE_KEY` configuradas em **Rep
 
 O arquivo `database/liquibase.properties.example` é ignorado. O modelo seguro utilizado pelo projeto é `database/liquibase.properties.template`.
 
-
-### Confirmação de e-mail
-
-O projeto define os redirecionamentos de autenticação em `public/app-config.js`:
-
-```javascript
- authRedirectUrl: 'https://dpescador.github.io/apontamentos-angular/',
- localAuthRedirectUrl: 'http://localhost:4200/'
-```
-
-O mesmo endereço é aplicado no cadastro e no botão **Reenviar confirmação**. No
-Supabase, configure a URL de produção como **Site URL** e cadastre as URLs de
-produção e desenvolvimento em **Redirect URLs**.
-
 ## Criar o primeiro administrador
 
 1. Crie uma conta normalmente pela aplicação.
